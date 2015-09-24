@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @vote.title
+p
+  strong Content:
+  = @vote.content
+
+= link_to 'Edit', edit_vote_path(@vote)
+'|
+= link_to 'Back', votes_path

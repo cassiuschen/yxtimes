@@ -1,0 +1,22 @@
+defaults: &defaults
+  # Qiniu
+  qiniu:
+    access_key    : <%= ENV["QINIU_AK"] %>
+    secret_key    : <%= ENV["QINIU_SK"] %>
+    bucket        : <%= ENV["QINIU_BUCKET"] %>
+    bucket_domain : <%= ENV["QINIU_DOMAIN"] %>
+    bucket_private: false
+    block_size    : 41943040
+    protocol      : http
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+
+docker:
+  <<: *defaults
