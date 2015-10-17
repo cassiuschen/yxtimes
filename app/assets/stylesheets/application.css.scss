@@ -10,6 +10,35 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ * require_tree .
  *= require_self
  */
+@import "components";
+body , ul , li {
+	margin: 0;
+	padding: 0;
+}
+
+ul , li , a {
+	list-style: none;
+	text-decoration: none;
+}
+
+.container {
+	width: 960px;
+	margin: 0 auto;
+	display: block !important;
+}
+
+@media (max-width: 960px) {
+	.container {
+		width: 100%;
+		margin: 0;
+	}
+}
+
+
+* {
+	transition: all .28s;
+}
+

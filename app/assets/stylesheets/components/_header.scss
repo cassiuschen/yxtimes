@@ -1,0 +1,63 @@
+header {
+	background-color: #4C4C4C;
+	height: 44px;
+	width: 100%;
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	font-size: 0;
+	z-index: 1;
+
+	* {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	.logo-header {
+		height: 24px; 
+		margin-top: 10px;
+	}
+
+	.right {
+		float: right;
+	}
+
+	.search_box{
+		height: 22px;
+		width: 114px;
+		margin: 10px 15px;
+		border-radius: 8px;
+		border: none;
+	}
+
+	.log_in {
+		font-size: 12px;
+		text-decoration: none;
+		color: #fff;
+		margin: 16px 15px;
+		line-height: 12px;
+		text-align: center;
+	}
+
+	.log_in:hover {
+		color: #80B730;
+	}
+
+	.sign_up {
+		font-size: 12px;
+		text-decoration: none;
+		color: #fff;
+		border-radius: 8px;
+		border: 2px solid #fff;
+		line-height: 12px;
+		text-align: center;
+		padding: 3px 19px;
+		margin: 11px 15px;
+	}
+
+	.sign_up:hover {
+		background-color: #fff;
+		color: #80B730;
+	}
+}

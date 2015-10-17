@@ -1,0 +1,51 @@
+.slider {
+	position: relative;
+	width: 1280px;
+	height: 300px;
+	top: 44px;
+	overflow: hidden;
+
+	ul {
+		position: relative;
+		-webkit-transition: 0.5s left;
+    	-moz-transition: 0.5s left;
+	    -ms-transition: 0.5s left;
+	    -o-transition: 0.5s left;
+
+		li {
+			float: left;
+			width: 1280px;
+			height: 300px;
+		}
+	}
+
+	.slice {
+		position: absolute;
+		bottom: 7px;
+		right: calc(50% - 29px);
+		font-size: 0;
+
+		.dot {
+			height: 7px;
+			width: 7px;
+			margin: 0 5px;
+			background-image: asset-url('oval.svg');
+			background-size: 7px;
+			background-repeat: no-repeat;
+			display: inline-block;	
+
+			&:hover {
+				background-image: asset-url('oval_hover.svg');
+				cursor: pointer;
+			}
+
+			&:active {
+				background-image: asset-url('oval_active.svg');
+			}
+		}
+	}
+}
+
+
+
+

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :votes
-  get 'welcome/index'
+  root 'welcome#index'
 
-  get 'welcome/about'
+  get 'about' => 'welcome#about'
 
   devise_for :users
   resources :articles

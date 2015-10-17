@@ -1,0 +1,93 @@
+nav {
+	width: 100%;
+	position: relative;
+	top: -240px;
+
+	.nav_bar {
+		position: relative;
+		margin: 0 auto;
+		text-align: center;
+
+		.item {
+			display: inline-block;
+			vertical-align: top;
+			position: relative;
+			font-size: 18px;
+			color: #000;
+
+			.icon {
+				display: none;
+			}
+
+			.icon_focus {
+				background-image: asset-url('icon_focus.svg');
+				background-size: 20px 20px; 
+			}
+
+			.icon_view {
+				background-image: asset-url('icon_view.svg');
+				background-size: 25px 14px;
+			}
+
+			.icon_contest {
+				background-image: asset-url('icon_contest.svg');
+				background-size: 15px 20px;
+			}
+
+			.icon_vote {
+				background-image: asset-url('icon_vote.svg');
+				background-size: 16px 14px;
+			}
+
+			a {
+				display: inline-block;
+				vertical-align: top;
+				line-height: 50px;
+				color: #000;
+			}
+
+			a:hover {
+				color: #80B730;
+				line-height: 24px;
+				padding-bottom: 24px;
+				border-bottom: 2px solid #80B730;
+			}
+
+			a:active {
+				color: #80B730;
+				line-height: 24px;
+				padding-bottom: 24px;
+				border-bottom: 2px solid #80B730;
+			}
+
+			&:after {
+				content: ' ';
+				position: relative;
+				top: 0;
+				right: 0;
+				width: 50px;
+				height: 50px;
+				background-image: asset-url('line.svg');
+				background-size: 50px;
+				background-repeat: no-repeat;
+				background-position: center;
+				display: inline-block;
+				vertical-align: top;
+			}
+
+			&:first-child:before {
+				content: ' ';
+				position: relative;
+				top: 0;
+				left: 0;
+				width: 50px;
+				height: 50px;
+				background-image: asset-url('line.svg');
+				background-size: 50px;
+				background-position: center;
+				background-repeat: no-repeat;
+				display: inline-block;
+			}
+		}
+	}
+}

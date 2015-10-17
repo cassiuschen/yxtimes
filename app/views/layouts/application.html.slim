@@ -1,0 +1,74 @@
+doctype html
+html
+  head
+    title yxtimes
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+    meta charset="UTF-8"
+    meta name="viewport"  content="width=device-width , initial-scale=1"
+
+  body
+    header 
+      .container
+        = image_tag "logo-header.png" , class: "logo-header"
+        .right
+          input type="text" class="search_box"          
+          = link_to "登陆" , new_user_registration_path , class: "log_in"
+          = link_to "注册" , new_user_registration_path , class: "sign_up"
+          
+    .slider
+      ul#image_slider
+        li
+          = image_tag "banner.svg" , class: "banner"
+        li
+          = image_tag "banner-2.jpg" , class: "banner"
+        li
+          = image_tag "banner-3.jpg" , class: "banner"
+        li
+          = image_tag "banner-4.jpg" , class: "banner"
+
+      .slice#pager
+        a.dot#dot_1
+        a.dot#dot_2
+        a.dot#dot_3
+        a.dot#dot_4 
+        
+    .tag.left
+      a
+        | 关于我们
+      .list
+        a.mute
+          | 了解我们
+        a.mute
+          | 联系我们
+        a.mute
+          | 加入我们
+
+    .tag.right
+      a
+        |投稿
+
+    nav
+      .container
+        .nav_bar
+          .item
+            = link_to "首页" , root_path , class:"nav_home"
+          .item
+            = link_to "聚焦" , root_path , class:"nav_focus"
+            .icon.icon_focus
+          .item
+            = link_to "观点" , root_path , class:"nav_perspectives"
+            .icon.icon_view
+          .item
+            = link_to "赛事" , root_path , class:"nav_contest"
+            .icon.icon_contest
+          .item
+            = link_to "投票" , root_path , class:"nav_vote"
+            .icon.icon_vote
+
+
+    
+
+    = yield
