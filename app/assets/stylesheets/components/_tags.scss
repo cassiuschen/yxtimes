@@ -1,0 +1,28 @@
+.tags {
+	position: relative;
+	top: 120px;
+	width: 910px;
+	margin: 0 auto;
+	height: 28px;
+	border-bottom: 2px solid $white;
+	text-align: center;
+	margin-bottom: 56px;
+
+	.tag {
+		width: 66px;
+		padding: 0 20px 12px;
+		font-size: 14px;
+		color: $light_gray;
+		text-align: center;
+
+		&.active {
+			border-bottom: 2px solid $green;
+			color: #414141;
+		}
+
+		&:hover {
+			border-bottom: 2px solid $light_green;
+			cursor: pointer;
+		}
+	}
+}

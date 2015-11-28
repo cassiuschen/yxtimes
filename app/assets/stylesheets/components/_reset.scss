@@ -1,0 +1,28 @@
+body, div, input, img, ul, li, a {
+	margin: 0;
+	padding: 0;
+}
+
+input, textarea {
+	-webkit-appearance: none !important;
+	-webkit-tap-highlight-color: transparent;
+	outline: none;
+	border: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+li, ul {
+	list-style: none;
+}
+
+.clearfix {
+	overflow: auto;
+	zoom: 1;
+}
+
+* {
+	transition: 0.2s;
+}
