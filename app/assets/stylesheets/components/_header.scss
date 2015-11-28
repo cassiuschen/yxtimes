@@ -4,6 +4,7 @@ header {
 	background-color: #4f4f4f;
 	font-size: 0;
 	position: fixed;
+	z-index: 9;
 
 	.logo {
 		display: inline-block;
@@ -87,7 +88,7 @@ header {
 							color: $light_green;
 							cursor: pointer;
 						}
-					}	
+					}
 				}
 			}
 		}
@@ -191,11 +192,11 @@ header .container {
 		}
 		.nav {
 			display: none;
-		}			
+		}
 		.right {
 			.log_in {
 				display: none;
-			}	
+			}
 			.search {
 				display: none;
 			}
