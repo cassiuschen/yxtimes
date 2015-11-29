@@ -1,3 +1,59 @@
 // Place all the styles related to the Votes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+    background-color: $background_color;
+}
+
+.card_vote{
+    position: relative;
+    display: flex;
+    margin: 30px auto;
+    padding: $padding;
+    height: 220px;
+    max-width: $max_width;
+    text-align: left;
+    background-color: $white;
+    box-sizing: border-box;
+
+    @include clearfix;
+
+    &:hover:before{
+        content: "查看结果";
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: 220px;
+        font-size: 20px;
+        color: $white;
+        background-color: $mask_color;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .image_box{
+        width: 300px;
+    }
+    .vote_content{
+        position: relative;
+        flex: 1;
+        padding-left: $padding;
+        padding-bottom: 2em;
+
+        h4{
+            margin: 1em 0;
+            font-size: 18px;
+        }
+        span{
+            position: absolute;
+            bottom: 0.5em;
+            left: $padding;
+            color: $light_green;
+        }
+    }
+}

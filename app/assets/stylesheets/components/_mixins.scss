@@ -1,0 +1,19 @@
+@mixin clearfix{
+    &:after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin media($query){
+    @media #{$query} {
+        @content;
+    }
+}
+
+@mixin max($width) {
+    @include media("(max-width: #{$width})") {
+        @content;
+    }
+}

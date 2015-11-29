@@ -18,9 +18,19 @@ $light_green: #BBE67C;
 $background_color: #f6f6f6;
 $light_gray: #888888;
 $white: #ffffff;
+$font_color: #626262;
+$h_color: #4f4f4f;
+$mask_color: rgba(0,0,0,0.5);
+
+$max_width: 1160px;
+$padding: 16px;
+
+$font_size: 14px;
 
 
 @import "font-awesome";
+
+@import "components/mixins";
 
 @import 'components/header';
 @import 'components/reset';
@@ -28,3 +38,5 @@ $white: #ffffff;
 @import "welcome";
 @import "components/slider";
 @import "components/tags";
+
+@import "votes";
