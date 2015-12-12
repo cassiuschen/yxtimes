@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'match/index'
+
   resources :votes
   # get 'welcome/index'
 

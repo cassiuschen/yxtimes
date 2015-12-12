@@ -23,6 +23,7 @@ $h_color: #4f4f4f;
 $mask_color: rgba(0,0,0,0.5);
 
 $max_width: 1160px;
+$mobile_width: 930px;
 $padding: 16px;
 
 $font_size: 14px;
@@ -41,3 +42,4 @@ $font_size: 14px;
 
 @import "votes";
 @import "articles";
+@import "match";
