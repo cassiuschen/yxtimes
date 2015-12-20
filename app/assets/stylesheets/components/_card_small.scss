@@ -1,10 +1,82 @@
-.card_small {
+.card_small, .card_large {
 	width: 280px;
 	position: relative;
+	background-color: #fff;
+	display: inline-block;
+	vertical-align: top;
+	margin: 15px 17.5px;
 
-	.picture {
+	.title {
+		width: 100%;
 		position: relative;
-		width: 280px;
-		height: 175px;
+		bottom: 0;
+		font-size: 0;
+
+		.picture {
+			width: 100%;
+		}
+
+		a {
+			width: 100%;
+			display: block;
+			position: absolute;
+			bottom: 0;
+			font-size: 14px;
+			line-height: 34px;
+			color: $white;
+			padding-left: 15px;
+			box-sizing: border-box;
+			background-color: rgba(0, 0, 0, .27);
+		}
+	}
+
+	.tag {
+		width: 45px;
+		height: 20px;
+		position: absolute;
+		top: 10px;
+		background-color: rgba(0, 0, 0, .2);
+		font-size: 0;
+
+		a {
+			color: $white;
+			position: relative;
+			font-size: 12px;
+			margin-left: 14px;
+			line-height: 20px;
+		}
 	}
 }
+
+.card_small .content {
+		width: 100%;
+		padding: 8px 15px;
+		box-sizing: border-box;
+		position: relative;
+		top: 0px;
+		left: 0;
+		background-color: $white;
+
+		.subtitle {
+			font-size: 12px;
+			color: $font_color;
+			line-height: 18px;
+			margin-bottom: 12px;
+		}
+
+		.time {
+			font-size: 12px;
+			color: $light_gray;
+			line-height: 16px;
+			padding-bottom: 7px;
+			width: 100%;
+			border-bottom: 1px solid $background-color;
+		}
+
+		.author {
+			font-size: 12px;
+			color: $light_gray;
+			line-height: 16px;
+			margin-top: 6px;
+		}
+	}

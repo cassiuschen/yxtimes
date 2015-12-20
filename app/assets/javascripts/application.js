@@ -13,12 +13,36 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require iscroll
+//= require masonry-docs.min
+//= require jquery.nivo.slider.pack
 
-$("document").ready(function() {
+//= repuire components/slider
+
+$("document").on('page:load', function() {
 	$(".dropdown").hover(function() {
 		$(this).addClass("on");
 	}, function(){
 		$(this).removeClass("on");
 	});
 });
+
+$(".cards").masonry({
+	itemSelector: '.card',
+	columnWidth: '.card'
+});
+
+
+
+var slider;
+
+slider = new IScroll('#wrapper', {
+	scrollX: true,
+	scrollY: false,
+	momentum: false,
+	snap: true,
+	snapSpeed: 400,
+	keyBindings: true,
+	
+});
+

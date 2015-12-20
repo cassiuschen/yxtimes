@@ -1,9 +1,10 @@
-.slider	
-	.banner
-		li style="background-image: url(#{asset_url('banner.jpg')});"
-		li style="background-image: url(#{asset_url('banner.jpg')});"
-		li style="background-image: url(#{asset_url('banner.jpg')});"
-		li style="background-image: url(#{asset_url('banner.jpg')});"
+.slider
+	#wrapper	
+		.banners
+			= image_tag "banner.jpg",  class: "banner banner1"
+			= image_tag "banner.jpg",  class: "banner banner2"
+			= image_tag "banner.jpg",  class: "banner banner3"
+			= image_tag "banner.jpg",  class: "banner banner4"
 	.dots
 		a.dot.active
 			= fa_icon "circle"

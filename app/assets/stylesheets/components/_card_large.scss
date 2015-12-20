@@ -1,0 +1,45 @@
+.card_large .content {
+		width: 100%;
+		padding: 8px 15px 0 15px;
+		box-sizing: border-box;
+		position: relative;
+		top: 0px;
+		left: 0;
+		background-color: $white;
+
+		.subtitle {
+			font-size: 12px;
+			color: $font_color;
+			line-height: 18px;
+			margin-bottom: 12px;
+		}
+
+		.time {
+			font-size: 12px;
+			color: $light_gray;
+			line-height: 16px;
+			padding-bottom: 7px;
+			width: 100%;
+			border-bottom: 1px solid $background-color;
+			margin-bottom: 16px;
+		}
+
+		.article {
+			width: 100%;
+			margin-bottom: 16px;
+
+			.title {
+				font-size: 13px;
+				color: $h_color;
+				text-align: left;
+				line-height: 20px;
+				top: 0;
+			}
+
+			.author {
+				font-size: 10px;
+				color: $light_gray;
+				text-align: right;
+			}
+		}
+	}

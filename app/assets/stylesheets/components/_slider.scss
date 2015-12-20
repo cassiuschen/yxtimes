@@ -52,3 +52,15 @@
 		}
 	}
 }
+
+@media (max-width: 930px) {
+	.slider .banner {
+		height: 250px;
+	}
+}
+
+@media (max-width: 629px) {
+	.slider .banner {
+		height: 220px;
+	}
+}

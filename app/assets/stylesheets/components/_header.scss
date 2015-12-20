@@ -76,7 +76,6 @@ header {
 						left: 0;
 
 
-
 						li {
 							height: 34px;
 							line-height: 34px;
@@ -85,8 +84,10 @@ header {
 
 						li:hover {
 							background-color: #4f4f4f;
-							color: $light_green;
 							cursor: pointer;
+						}
+						li:hover a {
+							color: $light_green;
 						}
 					}
 				}

@@ -1,16 +1,15 @@
 .tags {
 	position: relative;
-	top: 120px;
 	width: 910px;
 	margin: 0 auto;
 	height: 28px;
 	border-bottom: 2px solid $white;
 	text-align: center;
-	margin-bottom: 56px;
+	margin-bottom: 41px;
 
 	.tag {
 		width: 66px;
-		padding: 0 20px 12px;
+		padding: 0 20px 8px;
 		font-size: 14px;
 		color: $light_gray;
 		text-align: center;
@@ -24,5 +23,11 @@
 			border-bottom: 2px solid $light_green;
 			cursor: pointer;
 		}
+	}
+}
+
+@media (max-width: 910px) {
+	.tags {
+		width: 100%;
 	}
 }

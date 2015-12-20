@@ -1,0 +1,19 @@
+.sort_down {
+	display: none;
+	width: 100%;
+	position: relative;
+	top: 40px;
+	border-top: 1px solid $heavy_gray;
+
+	.wrap {
+		width: 80%;
+		margin: 50px auto;
+
+		.nav {
+			display: flex;
+			display: -webkit-flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+		}
+	}
+}

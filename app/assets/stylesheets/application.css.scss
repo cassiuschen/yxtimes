@@ -20,6 +20,7 @@ $light_gray: #888888;
 $white: #ffffff;
 $font_color: #626262;
 $h_color: #4f4f4f;
+$heavy_gray: #464646;
 $mask_color: rgba(0,0,0,0.5);
 
 $max_width: 1160px;
@@ -35,8 +36,13 @@ $font_size: 14px;
 @import 'components/header';
 @import 'components/reset';
 
+
 @import "welcome";
 @import "components/slider";
 @import "components/tags";
 
-@import "votes";
+@import "components/card_small";
+@import "components/card_large";
+@import "components/sort_down";
+
+@import "votes"; 
