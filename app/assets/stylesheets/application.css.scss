@@ -24,6 +24,7 @@ $heavy_gray: #464646;
 $mask_color: rgba(0,0,0,0.5);
 
 $max_width: 1160px;
+$mobile_width: 930px;
 $padding: 16px;
 
 $font_size: 14px;
@@ -40,9 +41,9 @@ $font_size: 14px;
 @import "welcome";
 @import "components/slider";
 @import "components/tags";
-
 @import "components/card_small";
 @import "components/card_large";
 @import "components/sort_down";
 
-@import "votes"; 
+@import "articles";
+@import "match";
