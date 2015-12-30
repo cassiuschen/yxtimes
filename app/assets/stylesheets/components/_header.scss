@@ -4,7 +4,7 @@ header {
 	background-color: #4f4f4f;
 	font-size: 0;
 	position: fixed;
-	z-index: 9;
+	z-index: 88;
 
 	.logo {
 		display: inline-block;
@@ -53,8 +53,8 @@ header {
 				}
 
 				&:active.title {
-					border-bottom: 2px solid$green;
-					height: 38px;
+					border-bottom: 2px solid $green;
+					height: 40px;
 					transition: 0s !important;
 				}
 
@@ -88,6 +88,7 @@ header {
 						}
 						li:hover a {
 							color: $light_green;
+							cursor: pointer;
 						}
 					}
 				}
@@ -207,6 +208,17 @@ header .container {
 			.bars {
 				display: inline-block;
 			}
+		}
+	}
+}
+
+@media (max-width: 414px) {
+	header {
+		.logo {
+			margin-left: 0;
+		}
+		.right .bars {
+			margin-right: 0;
 		}
 	}
 }

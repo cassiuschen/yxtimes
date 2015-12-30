@@ -1,0 +1,83 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    title
+      | YXTIMES | 后台管理
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+    = stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'admin', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    
+  body.skin-black.fixed
+    header.header
+      = link_to admin_path, class: :logo
+        = image_tag("logo.svg", style: "height:25px")
+      nav.navbar.navbar-static-top role="navigation"
+        a.navbar-btn.sidebar-toggle href="#" data-toggle="offcanvas" role="button"
+          span.sr-only | 显示菜单
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        .navbar-right
+            ul.nav.navbar-nav
+              li.dropdown.user.user-menu
+                a.dropdown-toggle href="#" data-toogle="dropdown"
+                  = fa_icon "user"
+                  span style="padding: 0 5px;"
+                    | 瑄瑄
+                  = fa_icon "sort-down"
+                ul.dropdown-menu.dropdown-custom.dropdown-menu-right
+                  li.dropdown-header.text-center
+                    | 用户操作
+                  li
+                    | 退出登录
+                    i.fa.fa-sign-out.pull-right
+    .wrapper.row-offcanvas.row-offcanvas-left
+      aside.left-side.sidebar-offcanvas
+        section.sidebar
+          .user-panel
+            .info
+              p
+                | 欢迎，瑄瑄
+          ul.sidebar-menu
+            li class= '#{controller == "users" ? "active" : ""}'
+              = link_to admin_articles_path
+                = fa_icon "book"
+                |  文章
+      aside.right-side
+        section.content
+          = yield
+    = yield :modal
+    
+    coffee:
+      $(document).ready ->
+        $('.dropdown').on 'click', ->
+          $(this).toggleClass 'open'
+        
+        console.log 'run here'
+
+    javascript:
+      $('input').on('ifChecked', function(event) {
+            // var element = $(this).parent().find('input:checkbox:first');
+            // element.parent().parent().parent().addClass('highlight');
+            $(this).parents('li').addClass("task-done");
+            console.log('ok');
+        });
+        $('input').on('ifUnchecked', function(event) {
+            // var element = $(this).parent().find('input:checkbox:first');
+            // element.parent().parent().parent().removeClass('highlight');
+            $(this).parents('li').removeClass("task-done");
+            console.log('not');
+        });
+    javascript:
+      $('#noti-box').slimScroll({
+          height: '400px',
+          size: '5px',
+          BorderRadius: '5px'
+      });
+
+      $('input[type="checkbox"].flat-grey, input[type="radio"].flat-grey').iCheck({
+          checkboxClass: 'icheckbox_flat-grey',
+          radioClass: 'iradio_flat-grey'
+      });

@@ -16,33 +16,32 @@
 //= require iscroll
 //= require masonry-docs.min
 //= require jquery.nivo.slider.pack
+//= repuire_tree ./components
+//= require bootstrap
+//= require_self
 
-//= repuire components/slider
-
-$("document").on('page:load', function() {
+$(document).on('ready page:load', function() {
 	$(".dropdown").hover(function() {
 		$(this).addClass("on");
 	}, function(){
 		$(this).removeClass("on");
 	});
+	//$('.collapse').collapsing();
+
+	var $grid = $(".cards").masonry({
+		itemSelector: '.card'
+	});
+
+	$grid.imagesLoaded().progress(function(){
+		$grid.masonry('layout');
+	});
 });
 
-$(".cards").masonry({
-	itemSelector: '.card',
-	columnWidth: '.card'
-});
 
 
 
-var slider;
 
-slider = new IScroll('#wrapper', {
-	scrollX: true,
-	scrollY: false,
-	momentum: false,
-	snap: true,
-	snapSpeed: 400,
-	keyBindings: true,
-	
-});
+
+
+
 

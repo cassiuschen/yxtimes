@@ -1,16 +1,22 @@
-.slider
-	#wrapper	
-		.banners
-			= image_tag "banner.jpg",  class: "banner banner1"
-			= image_tag "banner.jpg",  class: "banner banner2"
-			= image_tag "banner.jpg",  class: "banner banner3"
-			= image_tag "banner.jpg",  class: "banner banner4"
-	.dots
-		a.dot.active
-			= fa_icon "circle"
-		a.dot 
-			= fa_icon "circle"	
-		a.dot 
-			= fa_icon "circle"
-		a.dot 
-			= fa_icon "circle"
+.carousel.slider#carousel-generic data-ride="carousel"
+	//indicator
+		ol.carousel-indicators
+			li.active data-target="#carousel-generic" data-slide-to="0"
+			li data-target="#carousel-generic" data-slide-to="1"
+			li data-target="#carousel-generic" data-slide-to="2"
+			li data-target="#carousel-generic" data-slide-to="3"
+
+	//sliders
+	.carousel-inner role="listbox"
+		.item.active
+			//
+				= image_tag "banner.jpg"
+		//
+			.item
+				= image_tag "banner.jpg"
+			.item
+				= image_tag "banner.jpg"
+			.item
+				= image_tag "banner.jpg"
+
+

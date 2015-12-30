@@ -1,0 +1,50 @@
+body.works{
+    height: auto;
+    min-height: 100%;
+    background-image: asset-url('bg.jpg');
+    background-size: auto 100%; 
+    background-attachment: fixed;
+    background-position: center;
+
+    .wrapper {
+        position: relative;
+        top: 140px;
+    }
+
+    .card_work{
+        position: relative;
+        display: flex;
+        margin: 0 auto;
+        padding: $padding;
+        height: 220px;
+        max-width: $max_width;
+        text-align: left;
+        background-color: $white;
+        box-sizing: border-box;
+        margin-bottom: 40px;
+
+        @include clearfix;
+
+        .image_box{
+            width: 300px;
+        }
+        .work_content{
+            position: relative;
+            flex: 1;
+            padding-left: $padding;
+            padding-bottom: 2em;
+
+            h4{
+                margin: 1em 0;
+                font-size: 18px;
+            }
+            span{
+                position: absolute;
+                bottom: 0.5em;
+                left: $padding;
+                color: $light_gray;
+            }
+        }
+    }
+}
+

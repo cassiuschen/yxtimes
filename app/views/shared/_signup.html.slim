@@ -1,0 +1,32 @@
+.modal.fade#modalSignup tabindex="-1" role="dialog" aria-labelledby="modalLable"
+  .modal-dialog role="document"
+    .modal-content
+      button.close data-dismiss="modal" aria-lable="Close"
+        span aria-hidden="true"
+        	= fa_icon "times" 
+      .modal-body
+      	= image_tag "logo-mid.svg", class:"logo"
+      	.row
+      		input.form-control.name placeholder="用户名"
+        .row
+          input.form-control.email placeholder="邮箱"
+      	.row
+      		input.form-control.password_signup placeholder="密码"
+        .checkbox
+          lable
+            input type="checkbox" checked="checked"
+              | 我是北大附中学生
+        .checkbox.chekbox_two
+          lable
+            input type="checkbox" checked="checked"
+              | 我是北大附中校友
+      	button type="button" class="btn btn-primary"
+      		| 注册
+      	span.info
+      		| 已有YXTIMES帐号?
+      	a.modal-flipper.btn_signup
+      		= fa_icon "chevron-left" 
+      		| 登陆 YXTIMES
+       
+
+

@@ -1,25 +1,34 @@
-.sort_down
+.sort_down#bs-navbar.collapse aria-expand="false"
 	.wrap
 		.nav
-			a
-				|首页
-			a
-				|聚焦
-			a
-				|赛事
-			a
-				|投票
-			a
-				|阅读
-			a
-				|投稿
-			a
-				|我们
-			a
-				|首页
+			li.col-xs-3
+				= link_to root_path
+					| 首页
+			li.col-xs-3
+				= link_to focuses_path
+					| 聚焦
+			li.col-xs-3
+				= link_to matches_path
+					| 赛事
+			li.col-xs-3
+				= link_to votes_path
+					| 投票
+			li.col-xs-3
+				= link_to works_path
+					| 阅读
+			li.col-xs-3
+				= link_to votes_path
+					| 投稿
+			li.col-xs-3
+				= link_to about_path
+					| 我们
 		.enter
-			.log_in
-				|登录
-			.sign_up
-				|注册
-	.search
+			.col-xs-12
+				.log_in.col-xs-3 data-toggle="modal" data-target="#modalLogin"
+					a
+						| 登录
+				.sign_up.col-xs-3 data-toggle="modal" data-target="#modalSignup"
+					a
+						| 注册
+	input.search
+	= fa_icon "search"

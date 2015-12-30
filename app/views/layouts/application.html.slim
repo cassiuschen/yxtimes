@@ -5,6 +5,7 @@ html
     meta charset="utf-8"
     meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, minimum-scale=1"
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body class="#{controller_name} #{action_name}"
 
@@ -13,13 +14,20 @@ html
         .logo
         .nav
           .menu
-            a.item.title 首页
-            a.item.title 聚焦
-            a.item.title 文章
-            a.item.title 赛事
-            a.item.title 投票
-            a.item.title 阅读
-            a.item.title 投稿
+            = link_to root_path, class:"item title" 
+              | 首页
+            = link_to focuses_path, class:"item title"  
+              | 聚焦
+            = link_to articles_path, class:"item title"  
+              | 文章
+            = link_to matches_path, class:"item title"  
+              | 赛事
+            = link_to votes_path, class:"item title"  
+              | 投票
+            = link_to works_path, class:"item title"  
+              | 阅读
+            a.item.title
+              | 投稿
             .item.dropdown
               a.title
                 | 我们 
@@ -32,17 +40,19 @@ html
                 li
                   a 加入我们
         .right.menu.clearfix
-          .bars
+          .bars#btn_sort_down type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="true"
             = fa_icon "bars"
           = fa_icon "search"
           input.search
-          .log_in
+          .log_in data-toggle="modal" data-target="#modalLogin"
             | 登陆
-          .sign_up
+          .sign_up data-toggle="modal" data-target="#modalSignup"
             | 注册  
     = render "shared/sort_down"
+    = render "shared/login"
+    = render "shared/signup"
 
 
     == yield
     
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+

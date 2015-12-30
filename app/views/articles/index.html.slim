@@ -1,29 +1,47 @@
-h1 Listing articles
+= render "shared/slider"
+= render "shared/login"
 
-table
-  thead
-    tr
-      th Title
-      th Author
-      th Uploader
-      th Des
-      th Content
-      th
-      th
-      th
+.wrapper
+  = render "shared/tags"
+  .cards.tab-content
+    .tab-pane.fade.active.in#all role="tabpanel"
+      - @articles.each do |article|
+        = render "shared/card_small", article: article 
 
-  tbody
-    - @articles.each do |article|
+
+
+
+
+
+
+
+//
+  h1 Listing articles
+
+  table
+    thead
       tr
-        td = article.title
-        td = article.author
-        td = article.uploader
-        td = article.des
-        td = article.content
-        td = link_to 'Show', article
-        td = link_to 'Edit', edit_article_path(article)
-        td = link_to 'Destroy', article, data: {:confirm => 'Are you sure?'}, :method => :delete
+        th Title
+        th Author
+        th Uploader
+        th Des
+        th Content
+        th
+        th
+        th
 
-br
+    tbody
+      - @articles.each do |article|
+        tr
+          td = article.title
+          td = article.author
+          td = article.uploader
+          td = article.des
+          td = article.content
+          td = link_to 'Show', article
+          td = link_to 'Edit', edit_article_path(article)
+          td = link_to 'Destroy', article, data: {:confirm => 'Are you sure?'}, :method => :delete
 
-= link_to 'New Article', new_article_path
+  br
+
+  = link_to 'New Article', new_article_path

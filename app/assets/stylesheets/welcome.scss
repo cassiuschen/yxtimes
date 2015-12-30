@@ -2,35 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
+body.welcome, body.focuses, body.articles {
 	background-color: $background_color;
-}
-
-.wrapper {
-	position: relative;
-	top: 40px;
-	max-width: 945px;
-	margin: 0 auto;
-	font-size: 0;
-	padding-top: 80px;
-	box-sizing: border-box;
-
-	.cards {
-		max-width: 945px;
-		margin: 0 auto;
+	.wrapper {
 		position: relative;
-		top: 0;
+		top: 40px;
+		min-width: 280px;
+		margin: 0 auto;
+		font-size: 0;
+		padding-top: 80px;
+		box-sizing: border-box;
+
+		.cards {
+			max-width: 945px;
+			margin: 0 auto;
+			position: relative;
+			top: 0;
+		}
+	}
+
+	@media (max-width: 945px) {
+		.wrapper .cards {
+			max-width: 630px;
+		}
+	}
+
+	@media (max-width: 629px) {
+		.wrapper .cards {
+			max-width: 315px;
+		}
 	}
 }
 
-@media (max-width: 945px) {
-	.wrapper .cards {
-		max-width: 630px;
-	}
-}
-
-@media (max-width: 629px) {
-	.wrapper .cards {
-		max-width: 315px;
-	}
-}

@@ -1,18 +1,29 @@
 Rails.application.routes.draw do
-  get 'match/index'
 
   resources :votes
-  # get 'welcome/index'
-
-  get 'welcome/about'
+  resources :focuses
+  resources :articles
+  resources :matches
+  resources :works
+  #get 'welcome/index'
+  get 'about' => 'welcome#about'
+  #get 'welcome/about'
 
   devise_for :users
-  resources :articles
+  resources :articles do 
+    get :avatar, on: :member
+  end
   # The priority is based upon order of creation: first created -> highest priority.
+
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+
+  namespace :admin do
+    get '/' => "home#index"
+    resources :articles  
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

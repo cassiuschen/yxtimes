@@ -1,0 +1,81 @@
+.modal-content {
+	background-color: $background-color;
+
+	.close {
+		position: relative;
+		top: 16px;
+		right: 16px;
+	}
+
+	.modal-body {
+		text-align: center;
+
+		.logo {
+			margin: 26px 0;
+			position: relative;
+			left: -40px;
+		}
+
+		.form-control {
+			border: none;
+			width: 170px;
+			height: 30px;
+			border-radius: 8px;
+		}
+
+		input::-webkit-input-placeholder {
+			color: $placeholder_color;
+			font-size: 12px;
+			line-height: 20px;
+		}
+
+		.name {
+			margin: 6px auto;
+		}
+
+		.email {
+			margin: 6px auto;
+		}
+
+		.password {
+			margin: 12px auto;
+			margin-bottom: 20px;
+		}
+
+		.password_signup {
+			margin: 6px auto;
+			margin-bottom: 12px;
+			display: inline-block;
+		}
+
+		button {
+			background-color: $cute_green;
+			width: 170px;
+			height: 30px;
+			border: none;
+			margin-top: 10px;
+		}
+
+		.info {
+			font-size: 12px;
+			color: $light_letter;
+			display: block;
+			margin: 13px auto;
+		}
+
+		.btn_signup {
+			font-size: 14px;
+			color: $cute_green;
+			display: inline-block;
+			margin-bottom: 20px;
+
+			.fa-chevron-left {
+				margin-right: 12px;
+			}
+		}
+
+		.checkbox_two {
+			margin-top: 18px;
+		}
+	}
+}

@@ -1,10 +1,35 @@
 = render "shared/slider"
+= render "shared/login"
 
 .wrapper
 	= render "shared/tags"
-	.cards
-		= render "shared/card_small" 
-		= render "shared/card_small" 
-		= render "shared/card_large" 
-		= render "shared/card_small" 
-		= render "shared/card_small" 
+	.cards.tab-content
+		- @articles.each do |article|
+			= render partial: "shared/card_small", locals: {article: article}
+		- @articles.each do |article|
+			= render partial: "shared/card_small", locals: {article: article}
+		- @articles.each do |article|
+			= render partial: "shared/card_small", locals: {article: article}
+		- @articles.each do |article|
+			= render partial: "shared/card_small", locals: {article: article}
+		/.tab-pane.fade.active.in#all role="tabpanel"
+		/.tab-pane.fade#people role="tabpanel"
+			= render "shared/card_small", locals: {article: article}
+			= render "shared/card_small", locals: {article: article}
+			= render "shared/card_large", locals: {article: article}
+		/.tab-pane.fade#events role="tabpanel"
+			= render "shared/card_small" 
+			= render "shared/card_small"
+			= render "shared/card_small" 
+			= render "shared/card_small"
+		/.tab-pane.fade#surveys role="tabpanel"
+			= render "shared/card_small" 
+			= render "shared/card_small"
+		/.tab-pane.fade#views role="tabpanel"
+			= render "shared/card_small" 
+			= render "shared/card_small"
+			= render "shared/card_small" 
+			= render "shared/card_small"
+			= render "shared/card_small" 
+			= render "shared/card_small"
+

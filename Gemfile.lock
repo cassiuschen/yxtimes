@@ -48,6 +48,9 @@ GEM
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.3.6)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     bson (3.2.4)
     builder (3.2.2)
     byebug (6.0.2)
@@ -56,6 +59,10 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+    carrierwave-mongoid (0.8.1)
+      carrierwave (>= 0.8.0, < 0.11.0)
+      mongoid (>= 3.0, < 6.0)
+      mongoid-grid_fs (>= 1.3, < 3.0)
     carrierwave-qiniu (0.1.8)
       carrierwave
       qiniu (~> 6.4.2)
@@ -113,6 +120,9 @@ GEM
       mongo (~> 2.1)
       origin (~> 2.1)
       tzinfo (>= 0.3.37)
+    mongoid-grid_fs (2.2.1)
+      mime-types (>= 1.0, < 3.0)
+      mongoid (>= 3.0, < 6.0)
     multi_json (1.11.2)
     netrc (0.10.3)
     nokogiri (1.6.6.2)
@@ -199,6 +209,7 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     settingslogic (2.0.9)
+    simditor (2.3.6)
     similar_text (0.0.4)
     slim (3.0.6)
       temple (~> 0.7.3)
@@ -243,8 +254,10 @@ DEPENDENCIES
   auto-space
   autoprefixer-rails
   awesome_print
+  bootstrap-sass
   byebug
   carrierwave
+  carrierwave-mongoid
   carrierwave-qiniu
   coffee-rails (~> 4.1.0)
   devise
@@ -269,6 +282,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   settingslogic
+  simditor
   similar_text
   slim-rails
   spring

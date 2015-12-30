@@ -1,1 +1,3 @@
-_slider.js
+$('.carousel').carousel({
+	interval: 1000
+})

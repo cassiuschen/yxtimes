@@ -1,0 +1,43 @@
+/*
+ #= require admin/bootstrap
+ #= require admin/ionicons
+ #= require admin/morris/morris
+ #= require admin/jvectormap/jquery-jvectormap-1.2.2
+ #= require admin/datepicker/datepicker3
+ #= require admin/daterangepicker/daterangepicker-bs3
+ #= require admin/iCheck/all
+ #= require admin/style
+ #= require simditor
+ #= require simditor/simditor-markdown
+ *= require_self
+ */
+
+$green: #80B730;
+$light_green: #BBE67C;
+$placeholder_color: #BBBBBB;
+$cute_green: #AFDE7F;
+$background_color: #f6f6f6;
+$light_gray: #888888;
+$white: #ffffff;
+$font_color: #626262;
+$h_color: #4f4f4f;
+$heavy_h_color: #434343;
+$heavy_gray: #464646;
+$mask_color: rgba(0,0,0,0.5);
+$light_letter: #A1A1A1;
+$search_green: #777974;
+
+$max_width: 1160px;
+$mobile_width: 930px;
+$padding: 16px;
+
+$font_size: 14px;
+
+//bootstrap
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@import "components/color";
+@import "font-awesome";
+@import "components/card_small";
+

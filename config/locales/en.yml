@@ -19,5 +19,9 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+zh-CN:
   hello: "Hello world"
+  people: 人物
+  event: 事件
+  survey: 调查
+  view: 观点

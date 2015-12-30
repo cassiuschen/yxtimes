@@ -9,25 +9,25 @@
                 h4 常规赛赛季总MVP投票 谁是你心中的英雄
                 p MVP即“最有价值的球员”，评价标准：1、率领球队取得好成绩；2、身为球队核心作用要立竿见影；3、能够使队友变得更好。提名标准非常复杂，时报和篮球杯负责人综合考虑每一个球员的各类数据，在确保每个书院有2个提名的基础上选取综合系数较高的队员进入提名名单。
                 span 发起中
-
-table
-  thead
-    tr
-      th Title
-      th Content
-      th
-      th
-      th
-
-  tbody
-    //- @votes.each do |vote|
+//
+  table
+    thead
       tr
-        td = vote.title
-        td = vote.content
-        td = link_to 'Show', vote
-        td = link_to 'Edit', edit_vote_path(vote)
-        td = link_to 'Destroy', vote, data: {:confirm => 'Are you sure?'}, :method => :delete
+        th Title
+        th Content
+        th
+        th
+        th
 
-br
+    tbody
+      //- @votes.each do |vote|
+        tr
+          td = vote.title
+          td = vote.content
+          td = link_to 'Show', vote
+          td = link_to 'Edit', edit_vote_path(vote)
+          td = link_to 'Destroy', vote, data: {:confirm => 'Are you sure?'}, :method => :delete
 
-= link_to 'New Vote', new_vote_path
+  br
+
+  = link_to 'New Vote', new_vote_path

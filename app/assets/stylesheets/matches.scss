@@ -1,0 +1,148 @@
+// Place all the styles related to the match controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html{
+    height: 100%;
+}
+body.matches {
+    height: auto;
+    min-height: 100%;
+    background-image: asset-url('bg.jpg');
+    background-size: auto 100%;
+    background-attachment: fixed;
+    background-position: center;
+
+    .match-page{
+        padding-top: 40px;
+        nav{
+            margin: 0 auto;
+            padding: 20px 0;
+            max-width: $max_width;
+            ul{
+                @include clearfix();
+
+                li{
+                    float: left;
+                    padding: 0 20px;
+                    opacity: 0.5;
+                    a{
+                        color: $white;
+                    }
+
+                    &:hover{
+                        opacity: 0.7;
+                    }
+
+                    &.active{
+                        opacity: 1;
+                    }
+                }
+            }
+
+        }
+
+        .container{
+            margin: 10px auto 0;
+            max-width: $max_width;
+
+            .title{
+                text-align: center;
+
+                h3{
+                    margin: 0 auto;
+                    display: block;
+                    max-width: 400px;
+                    color: $white;
+                    line-height: 40px;
+                    font-size: 22px;
+                    font-weight: normal;
+                    border-bottom: 1px solid $white;
+                }
+            }
+            .content-box{
+                $padding: 10px;
+
+                position: relative;
+                @include clearfix();
+
+                .content-item{
+                    float: left;
+                    padding: $padding;
+                    width: 50%;
+                    box-sizing: border-box;
+
+                    @include max($mobile_width) {
+                        &{
+                            width: 100%;
+                        }
+                    };
+                    h4.title{
+                        text-align: center;
+                        color: $white;
+                    }
+
+                    ul.card-box{
+                        margin-bottom: $padding*2;
+                        padding: $padding $padding*2;
+                        background-color: $background_color;
+
+                        h5{
+                            margin: 0;
+                            text-align: center;
+                            font-size: 14px;
+                            font-weight: normal;
+                        }
+
+                        li{
+                            position: relative;
+                            display: flex;
+                            margin: $padding 0;
+                            padding: 0 $padding;
+                            line-height: 50px;
+                            background-color: $white;
+
+                            span{
+                                overflow: hidden;
+                                display: inline-block;
+
+                                &.time{
+                                    width: 15%;
+                                }
+                                &.team{
+                                    width: 20%;
+                                }
+                                &.score{
+                                    width: 10%;
+                                }
+                                &.area{
+                                    width: 35%;
+                                }
+                                &.turns{
+                                    width: 30%;
+                                }
+                            }
+                            a.link{
+                                overflow: hidden;
+                                display: inline-block;
+                                text-overflow: ellipsis;
+                                width: 55%;
+                                white-space: nowrap;
+                            }
+                        }
+
+                        a.more-link{
+                            display: block;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+
+        .articles-box{
+            margin: 10px auto;
+            max-width: $max_width;
+        }
+    }
+}
