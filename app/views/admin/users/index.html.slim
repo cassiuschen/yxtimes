@@ -1,0 +1,23 @@
+.row
+  .col-md-6
+    .sm-st.clearfix
+      span.sm-st-icon.st-violet
+        = fa_icon "users"
+      .sm-st-info
+        span 
+        | 用户总数
+  .col-md-6
+    .sm-st.clearfix
+      span.sm-st-icon.st-green
+        = fa_icon "user-plus"
+      .sm-st-info
+        span = 
+        | 新增用户数
+.row
+  .col-sm-12
+    .panel
+      .panel-body.table-responsive
+        .col-sm-1.pull-right
+          = link_to new_admin_user_path, class: "btn btn-default pull-right", style: "margin-right: 20px;"
+            =fa_icon "plus", style:"margin-right:4px"
+            | 添加用户

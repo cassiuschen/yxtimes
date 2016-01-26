@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :articles do 
     get :avatar, on: :member
+    resources :comments
   end
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/' => "home#index"
     resources :articles  
+    resources :users
   end
 
   # Example of regular route:

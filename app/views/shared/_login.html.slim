@@ -1,20 +1,21 @@
 .modal.fade#modalLogin tabindex="-1" role="dialog" aria-labelledby="modalLable"
   .modal-dialog role="document"
     .modal-content
-      button.close data-dismiss="modal" aria-lable="Close"
-        span aria-hidden="true"
-        	= fa_icon "times" 
+      .modal-header 
+        button.close data-dismiss="modal" aria-lable="Close" type="button"
+          span aria-hidden="true"
+          	= fa_icon "times" 
       .modal-body
       	= image_tag "logo-mid.svg", class:"logo"
       	.row
-      		input.form-control.name placeholder="用户名／邮箱"
+      		input.form-control.name placeholder="用户名／邮箱" autofocus="true"
       	.row
       		input.form-control.password placeholder="密码"
       	button type="button" class="btn btn-primary"
       		| 登陆
       	span.info
       		| 没有YXTIMES帐号?
-      	a.modal-flipper.btn_signup
+      	a.modal-flipper.btn_signup.flipme
       		= fa_icon "chevron-left" 
       		| 注册 YXTIMES
        

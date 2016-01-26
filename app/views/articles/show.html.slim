@@ -1,4 +1,4 @@
-.wrapper#article-detail
+#article-detail
   header style="background-image: url(#{asset_path 'header.png'})"
     h2 ［被遗忘的故事系列］永远的莫潇燕树
   
@@ -20,8 +20,14 @@
       p 2003年高考结束，莫潇燕考出了620分的好成绩，与班里的其他二十几名同学一道走进了北大、清华的大门。
       p 2003年6月24日，在毕业典礼上，北大附中校长康健把“飞燕奖”颁给了这个18岁的阳光女孩莫潇燕。她的故事打动了无数人的心。
       p 2004年8月17日，对于所有关心莫潇燕的人们来说，是一个不幸的日子。莫潇燕带着她对生命的渴求和对父母、师生们无限的爱离开了这个世界。闻听噩耗，北京大学及附中学生会和喜爱她的师生们万分悲痛，以各种形式悼念这个可爱的不向命运屈服，年仅19岁美丽的女孩儿。
-#uyan_frame
-script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js"
+
+javascript:
+  var editor = new Simditor({ 
+    textarea: $('#editor')
+    //optional options
+  });
+uyan_frame
+//script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js"
 
 //-p#notice = notice
 

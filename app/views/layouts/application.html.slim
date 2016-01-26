@@ -14,17 +14,17 @@ html
         .logo
         .nav
           .menu
-            = link_to root_path, class:"item title" 
+            = link_to root_path, class: "item title #{controller_name == 'welcome' ? 'active' : ''}" 
               | 首页
-            = link_to focuses_path, class:"item title"  
+            = link_to focuses_path, class: "item title #{controller_name == 'focuses' ? 'active' : ''}"  
               | 聚焦
-            = link_to articles_path, class:"item title"  
+            = link_to articles_path, class: "item title #{controller_name == 'articles' ? 'active' : ''}"  
               | 文章
-            = link_to matches_path, class:"item title"  
+            = link_to matches_path, class: "item title #{controller_name == 'matches' ? 'active' : ''}"  
               | 赛事
-            = link_to votes_path, class:"item title"  
+            = link_to votes_path, class: "item title #{controller_name == 'votes' ? 'active' : ''}"  
               | 投票
-            = link_to works_path, class:"item title"  
+            = link_to works_path, class: "item title #{controller_name == 'works' ? 'active' : ''}"  
               | 阅读
             a.item.title
               | 投稿

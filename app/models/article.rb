@@ -16,6 +16,8 @@ class Article
   field :type,  type: String
   # 聚焦 Focus, 观点 Opinion， 赛事 Game, 投票: Vote
 
+  embeds_many :comments, as: :commentable
+
 
   TAGES = {
     people:  '人物',
@@ -23,7 +25,6 @@ class Article
     survey:  '调查',
     view:    '观点'
   }
-
   
 
 end

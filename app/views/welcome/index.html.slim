@@ -8,10 +8,6 @@
 			= render partial: "shared/card_small", locals: {article: article}
 		- @articles.each do |article|
 			= render partial: "shared/card_small", locals: {article: article}
-		- @articles.each do |article|
-			= render partial: "shared/card_small", locals: {article: article}
-		- @articles.each do |article|
-			= render partial: "shared/card_small", locals: {article: article}
 		/.tab-pane.fade.active.in#all role="tabpanel"
 		/.tab-pane.fade#people role="tabpanel"
 			= render "shared/card_small", locals: {article: article}

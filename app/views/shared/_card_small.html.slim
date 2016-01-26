@@ -1,7 +1,7 @@
 .card_small.card
 	.title
 		= image_tag article.picture, class: :picture
-		a
+		= link_to article_path(article)
 			= article.title
 	.tag
 		a

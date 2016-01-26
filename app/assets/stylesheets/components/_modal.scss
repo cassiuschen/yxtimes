@@ -2,18 +2,23 @@
 	background-color: $background-color;
 
 	.close {
-		position: relative;
-		top: 16px;
-		right: 16px;
+
+	}
+	.modal-header {
+		border-bottom:none;
+		padding-top: 16px;
+		padding-right: 16px;
 	}
 
 	.modal-body {
 		text-align: center;
+		padding-top: 0;
 
 		.logo {
 			margin: 26px 0;
 			position: relative;
 			left: -40px;
+			margin-top: 0;
 		}
 
 		.form-control {
