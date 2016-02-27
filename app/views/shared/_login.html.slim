@@ -4,20 +4,20 @@
       .modal-header 
         button.close data-dismiss="modal" aria-lable="Close" type="button"
           span aria-hidden="true"
-          	= fa_icon "times" 
+            = fa_icon "times" 
       .modal-body
-      	= image_tag "logo-mid.svg", class:"logo"
-      	.row
-      		input.form-control.name placeholder="用户名／邮箱" autofocus="true"
-      	.row
-      		input.form-control.password placeholder="密码"
-      	button type="button" class="btn btn-primary"
-      		| 登陆
-      	span.info
-      		| 没有YXTIMES帐号?
-      	a.modal-flipper.btn_signup.flipme
-      		= fa_icon "chevron-left" 
-      		| 注册 YXTIMES
+        = image_tag "logo-mid.svg", class:"logo"
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .row
+            = f.email_field :email, autofocus: true, placeholder: "邮箱", class: "form-control name"
+          .row
+            = f.password_field :password, autocomplete: "off", placeholder: "密码", class: "form-control password"
+          = f.submit "登陆", class: "button btn btn-primary"
+          span.info
+            | 没有YXTIMES帐号?
+          a.modal-flipper.btn_signup.flipme
+            = fa_icon "chevron-left" 
+            | 注册 YXTIMES
        
 
 

@@ -6,6 +6,12 @@
 			= form_for [:admin, @article], html: {class: 'panel-body table-responsive'} do |f|
 				.form-group
 					lable style="line-height: 30px;"
+						| 类型
+					= f.select :kind
+						- Article::TYPES.each do |key, value|
+							= content_tag :option, "#{value}", value: "#{key}"
+				.form-group
+					lable style="line-height: 30px;"
 						| 标题
 					= f.text_field :title, class: 'form-control'
 				.form-group

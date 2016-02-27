@@ -4,7 +4,7 @@ class VotesController < ApplicationController
   # GET /votes
   # GET /votes.json
   def index
-    @votes = Vote.all
+    @votes = Vote.all.sort_by {|d| Time.now - d.updated_at}
   end
 
   # GET /votes/1

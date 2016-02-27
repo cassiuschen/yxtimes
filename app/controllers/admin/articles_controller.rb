@@ -1,16 +1,9 @@
 class Admin::ArticlesController < Admin::BaseController
 	before_action :set_article, only: [:show, :edit, :update, :destroy]
 
-  def avatar
-    content = @article.avatar.read
-    if stale?(etag: content, last_modified: @user.updated_at.utc, public: true)
-      send_data content, type: @article.avatar.file.content_type, disposition: "inline"
-      expires_in 0, public: true
-    end
-  end
-
 	def index
-		@articles = Article.all
+		@essays = Article.where(kind: 'essay')
+    @works = Article.where(kind: 'work')
 	end
 
 	def show
@@ -64,7 +57,7 @@ class Admin::ArticlesController < Admin::BaseController
     end
 
     def article_params
-      params.require(:article).permit(:title, :author, :des, :content, :tag, :picture, :banner)
+      params.require(:article).permit(:title, :author, :des, :content, :tag, :picture, :banner, :kind, :created_at)
     end
 
 

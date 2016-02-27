@@ -1,6 +1,10 @@
 class FocusesController < ApplicationController
 	def index
-		@focuses = Focus.all
+		@focuses = Focuse.all
+	end
+
+	def show
+		@focuse = Focuse.find(params[:id])
 	end
 	
 end

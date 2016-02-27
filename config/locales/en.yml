@@ -25,3 +25,8 @@ zh-CN:
   event: 事件
   survey: 调查
   view: 观点
+  date:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%b %d"
+      long: "%B %d, %Y"

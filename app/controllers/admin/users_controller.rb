@@ -30,6 +30,10 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def update
+    if params[:user][:password].blank?
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+    end
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to [:admin, @user], notice: 'User was successfully updated.' }
@@ -57,7 +61,7 @@ class Admin::UsersController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email)
+      params.require(:user).permit(:email, :password, :name, :avator)
     end
 
 end

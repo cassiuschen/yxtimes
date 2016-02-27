@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   resources :works
   #get 'welcome/index'
   get 'about' => 'welcome#about'
+  get 'people' => 'welcome#people'
+  get 'events' => 'welcome#events'
+  get 'surveys' => 'welcome#surveys'
+  get 'views' => 'welcome#views'
   #get 'welcome/about'
 
   devise_for :users
@@ -25,6 +29,15 @@ Rails.application.routes.draw do
     get '/' => "home#index"
     resources :articles  
     resources :users
+    resources :focuses do 
+      resources :articles, controller: :focuse_articles
+    end
+    resources :matches do 
+      resources :reports
+      resources :forecasts
+      resources :articles, controller: :match_articles
+    end
+    resources :votes
   end
 
   # Example of regular route:

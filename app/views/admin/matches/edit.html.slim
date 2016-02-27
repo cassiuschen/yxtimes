@@ -1,0 +1,28 @@
+.row
+	.col-xs-12
+		.panel
+			header.panel-heading
+				| 添加新的赛事
+			= form_for [:admin, @match], html: {class: 'panel-body table-responsive'} do |f|
+				.form-group
+					lable style="line-height: 30px;"
+						| 类型
+					= f.select :kind
+						- Match::TYPES.each do |key, value|
+							= content_tag :option, "#{value}", value: "#{key}"
+				.form-group
+					lable style="line-height: 30px;"
+						| 名称
+					= f.text_field :name, class: 'form-control'
+				.form-group
+					lable style="line-height: 30px; margin-top: 20px; display: inline-block;"
+						| 赛程
+					= f.file_field :agenda
+				.form-group
+					lable style="line-height: 30px; margin-top: 20px; display: inline-block;"
+						| 状态
+					= f.select :state
+						- Match::STATES.each do |key, value|
+							= content_tag :option, "#{value}", value: "#{key}"
+				= f.submit '保存创建', class: 'button btn btn-default', style: 'margin: 40px auto'
+				= link_to '取消创建', admin_matches_path, class: 'button btn btn-link', 	style: 'margin-left: 20px;'

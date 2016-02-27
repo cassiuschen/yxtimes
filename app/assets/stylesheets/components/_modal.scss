@@ -19,11 +19,23 @@
 			position: relative;
 			left: -40px;
 			margin-top: 0;
+			&.contribute {
+				left: 0;
+			}
+		}
+
+		.paragraph {
+			margin: 10px 60px;
+			line-height: 24px;
+			margin-bottom: 30px;
+			green {
+				color: $green;
+			}
 		}
 
 		.form-control {
 			border: none;
-			width: 170px;
+			width: 230px;
 			height: 30px;
 			border-radius: 8px;
 		}
@@ -49,13 +61,13 @@
 
 		.password_signup {
 			margin: 6px auto;
-			margin-bottom: 12px;
+			margin-bottom: 6px;
 			display: inline-block;
 		}
 
-		button {
+		.button {
 			background-color: $cute_green;
-			width: 170px;
+			width: 230px;
 			height: 30px;
 			border: none;
 			margin-top: 10px;

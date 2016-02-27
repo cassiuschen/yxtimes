@@ -2,26 +2,15 @@
 = render "shared/login"
 
 .wrapper
-	= render "shared/tags"
-	.cards.tab-content
-		.tab-pane.fade.active.in#all role="tabpanel"
-			= render "shared/card_large" 
-			= render "shared/card_large"
-		.tab-pane.fade#people role="tabpanel"
-			= render "shared/card_large"
-			= render "shared/card_large"
-		.tab-pane.fade#events role="tabpanel"
-			= render "shared/card_large" 
-			= render "shared/card_large"
-			= render "shared/card_large"
-			= render "shared/card_large"
-		.tab-pane.fade#surveys role="tabpanel"
-			= render "shared/card_large" 
-			= render "shared/card_large"
-			= render "shared/card_large"
-			= render "shared/card_large"
-		.tab-pane.fade#views role="tabpanel"
-			= render "shared/card_large" 
-			= render "shared/card_large"
-			= render "shared/card_large"
-			= render "shared/card_large"
+	.cards
+		- @focuses.each do |focuse|
+			= render "shared/card_large", focuse: focuse
+
+javascript:
+	var $grid = $(".cards").masonry({
+		itemSelector: '.card'
+	});
+	$grid.imagesLoaded().progress(function(){
+		$grid.masonry('layout');
+	});
+		

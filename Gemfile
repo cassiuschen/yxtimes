@@ -29,6 +29,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+#时间
+gem 'rails-timeago', '~> 2.0'
 #simditor
 gem 'simditor'
 

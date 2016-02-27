@@ -1,33 +1,19 @@
  .card_large.card
-	.title
-		= image_tag "picture.jpg", class: :picture
-		a
-			|篮球赛专题——他们身后的人
-	.tag
-		a
-			|调查
-	.content
-		.subtitle
-			|一些人辛勤地为篮球杯付出着，他们是谁，他们又做着怎样的工作
-		.time
-			|3小时前
-		.article
-			.title
-				|瑄瑄被困宿舍 错过双子流星
-			.author
-				|by 小瑄瑄、瑄瑄不慢
-		.article
-			.title
-				|瑄瑄被困宿舍 错过双子流星
-			.author
-				|by 小瑄瑄、瑄瑄不慢
-		.article
-			.title
-				|瑄瑄被困宿舍 错过双子流星
-			.author
-				|by 小瑄瑄、瑄瑄不慢
-		.article
-			.title
-				|瑄瑄被困宿舍 错过双子流星
-			.author
-				|by 小瑄瑄、瑄瑄不慢
+  .title
+    = image_tag focuse.picture, class: :picture
+    = link_to focuse_path(focuse)
+      = focuse.title
+  .content
+    .subtitle
+      = focuse.des
+    .time
+      = timeago_script_tag
+      = timeago_tag focuse.updated_at, :nojs => true, :limit => 10.days.ago
+    - focuse.articles.each do |article|
+      .article
+        = link_to article_path(article), class: "title"
+          = article.title
+        .author
+          = article.author
+
+        

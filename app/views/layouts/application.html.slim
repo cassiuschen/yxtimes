@@ -14,7 +14,7 @@ html
         .logo
         .nav
           .menu
-            = link_to root_path, class: "item title #{controller_name == 'welcome' ? 'active' : ''}" 
+            = link_to root_path, class: "item title #{controller_name == 'welcome' && action_name != 'about'? 'active' : ''}" 
               | 首页
             = link_to focuses_path, class: "item title #{controller_name == 'focuses' ? 'active' : ''}"  
               | 聚焦
@@ -26,31 +26,30 @@ html
               | 投票
             = link_to works_path, class: "item title #{controller_name == 'works' ? 'active' : ''}"  
               | 阅读
-            a.item.title
+            a.item.title data-toggle="modal" data-target="#modalContribute"
               | 投稿
-            .item.dropdown
-              a.title
-                | 我们 
-                = fa_icon "sort-down"
-              .list
-                li
-                  a 了解我们
-                li
-                  a 联系我们
-                li
-                  a 加入我们
+            = link_to about_path, class: "item title #{action_name == 'about' ? 'active' : ''}" 
+              | 我们 
         .right.menu.clearfix
           .bars#btn_sort_down type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="true"
             = fa_icon "bars"
-          = fa_icon "search"
-          input.search
-          .log_in data-toggle="modal" data-target="#modalLogin"
-            | 登陆
-          .sign_up data-toggle="modal" data-target="#modalSignup"
-            | 注册  
+            /= fa_icon "search"
+          /input.search
+          - if current_user
+            .log_in
+              = current_user.name || current_user.email
+            .sign_up   
+              = link_to destroy_user_session_path, method: :delete
+                | 退出
+          - else
+            .log_in data-toggle="modal" data-target="#modalLogin"
+              | 登陆
+            .sign_up data-toggle="modal" data-target="#modalSignup"
+              | 注册  
     = render "shared/sort_down"
     = render "shared/login"
     = render "shared/signup"
+    = render "shared/contribute"
 
 
     == yield

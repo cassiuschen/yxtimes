@@ -1,0 +1,196 @@
+.col-md-8
+  .panel.general
+    header.panel-heading.tab-bg-dark-navy-blue
+      ul.nav.nav-tabs#tab
+        li.active
+          a data-toggle="tab" href="#item"
+            = fa_icon "th-list", style: "margin-right: 10px"
+            span
+              = Match::TYPES[@match.kind]
+        li
+          a data-toggle="tab" href="#reports"
+            = fa_icon "th-list", style: "margin-right: 10px"
+            span
+              | 战报
+        li
+          a data-toggle="tab" href="#forecasts"
+            = fa_icon "th-list", style: "margin-right: 10px"
+            span
+              | 预告
+        li
+          a data-toggle="tab" href="#articles"
+            = fa_icon "th-list", style: "margin-right: 10px"
+            span
+              | 文章
+    .panel-body style="margin-bottom:400px;"
+      .tab-content
+        // 赛事panel
+        #item.tab-pane.fade.in.active
+          table.table.table-hover style="width: 90%; margin: 20px auto;"
+            tr 
+              td 名称
+              td = @match.name
+          .col-sm-12
+            = image_tag "#{@match.agenda}"
+        // 战报panel
+        #reports.tab-pane.fade
+          - @match.reports.each do |report|
+            li.list-group-item
+              span 
+                = report.content
+              span = link_to '删除', admin_match_report_path(@match, report), method: :delete, class: "btn btn-danger btn-xs pull-right inline", style: "margin-right:20px;"
+              span.form_edit_report_btn class= "btn btn-success btn-xs pull-right inline" style= "margin-right:20px;" data-target="#{report.id}_form_edit_report"
+                | 编辑
+            //编辑战报弹出框
+            .modal.fade id="#{report.id}_form_edit_report" style="position:absolute; top: 0; display: none;"
+              .modal-dialog
+                .modal-content
+                  .modal-header
+                    button.close 
+                      = fa_icon "times"
+                    h4.modal-title
+                      | 编辑战报
+                  .modal-body
+                    = form_for [:admin, @match, report] do |f| 
+                      .form-group
+                        lable style="line-height: 30px;"
+                          | 内容
+                        = f.text_field :content, class: 'form-control'
+                      = f.submit '完成', class: 'button btn btn-default', style: 'margin: 40px auto'  
+
+        // 预告panel
+        #forecasts.tab-pane.fade
+          - @match.forecasts.each do |forecast|
+            li.list-group-item
+              span 
+                = forecast.content
+              span = link_to '删除', admin_match_forecast_path(@match, forecast), method: :delete, class: "btn btn-danger btn-xs pull-right inline", style: "margin-right:20px;"
+              span.form_edit_forecast_btn class= "btn btn-success btn-xs pull-right inline" style= "margin-right:20px;" data-target="#{forecast.id}_form_edit_forecast"
+                | 编辑
+            //编辑战报弹出框
+            .modal.fade id="#{forecast.id}_form_edit_forecast" style="position:absolute; top: 0; display: none;"
+              .modal-dialog
+                .modal-content
+                  .modal-header
+                    button.close 
+                      = fa_icon "times"
+                    h4.modal-title
+                      | 编辑战报
+                  .modal-body
+                    = form_for [:admin, @match, forecast] do |f| 
+                      .form-group
+                        lable style="line-height: 30px;"
+                          | 内容
+                        = f.text_field :content, class: 'form-control'
+                      = f.submit '完成', class: 'button btn btn-default', style: 'margin: 40px auto' 
+        // 文章panel
+        #articles.tab-pane.fade
+          - @match.articles.each do |article|
+            li.list-group-item
+              .rol-12-sm
+                span style="color:#4d4d4d; font-size: 14px;"
+                  | 标题：
+                span style="font-size:16px;font-weight:900;"
+                  = article.title
+                span = link_to '删除', admin_match_article_path(@match, article), method: :delete, class: "btn btn-danger btn-xs pull-right inline", style: "margin-right:20px;"
+                span = link_to edit_admin_match_article_path(@match, article), class: "btn btn-success btn-xs pull-right inline", style:"margin-right:20px;"
+                  | 编辑 
+                span = link_to admin_match_article_path(@match, article), class: "btn btn-info btn-xs pull-right inline", style:"margin-right:20px;"
+                  | 详情
+              .rol-12-sm style="margin-top:10px;"
+                span style="color:#4d4d4d; font-size: 14px;"
+                  | 简介：
+                span style="font-size:14px;"
+                  = article.des
+              .rol-12-sm style="margin-top:10px;"
+                span style="color:#4d4d4d; font-size: 14px;"
+                  | 作者：
+                span style="font-size:14px;"
+                  = article.author
+              .rol-12-sm style="margin-top:10px;"
+                span style="color:#4d4d4d; font-size: 14px;"
+                  | 标签：
+                span style="font-size:14px;"
+                  = Article::TAGES[article.tag]
+
+//添加战报弹出框
+.modal.fade#form_report style="position:absolute; top: 0; display: none;"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close 
+          = fa_icon "times"
+        h4.modal-title
+          | 添加战报
+      .modal-body
+        = form_for [:admin, @match, @match.reports.build] do |f| 
+          .form-group
+            lable style="line-height: 30px;"
+              | 内容
+            = f.text_field :content, class: 'form-control'
+          = f.submit '创建战报', class: 'button btn btn-default', style: 'margin: 40px auto'
+//添加预告弹出框
+.modal.fade#form_forecast style="position:absolute; top: 0; display: none;"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close 
+          = fa_icon "times"
+        h4.modal-title
+          | 添加预告
+      .modal-body
+        = form_for [:admin, @match, @match.forecasts.build] do |f| 
+          .form-group
+            lable style="line-height: 30px;"
+              | 内容
+            = f.text_field :content, class: 'form-control'
+          = f.submit '创建预告', class: 'button btn btn-default', style: 'margin: 40px auto'
+
+.col-md-4
+  .panel
+    header.panel-heading
+      = fa_icon "cog", style: "margin-right: 10px"
+      span
+        | 操作
+    .panel-body.table-responsive
+      .box-tools.m-b-15#form_plus_report
+        .btn.btn-info.btn-block style="margin-right: 20px; background-color:#23B670"
+          =fa_icon "plus", style:"margin-right:8px"
+          | 添加战报
+      .box-tools.m-b-15#form_plus_forecast
+        .btn.btn-info.btn-block style="margin-right: 20px;"
+          =fa_icon "plus", style:"margin-right:8px"
+          | 添加预告
+      .box-tools.m-b-15#form_plus_type
+        = link_to new_admin_match_article_path(@match), class: "btn btn-primary btn-block", style: "margin-right: 20px; background-color:#23B670;"
+          =fa_icon "plus", style:"margin-right:8px"
+          | 添加文章
+      .box-tools.m-b-15
+        = link_to edit_admin_match_path(@match), class: "btn btn-primary btn-block", style: "margin-right: 20px;"
+          =fa_icon "wrench", style:"margin-right:8px"
+          | 修改赛事
+      .box-tools.m-b-15
+        = link_to admin_match_path(@match), method: :delete, class: "btn btn-danger btn-block", style: "margin-right: 20px;"
+          =fa_icon "trash", style:"margin-right:8px"
+          | 删除赛事
+      .box-tools.m-b-15#form_plus_type
+        = link_to admin_matches_path(@match), class: "btn btn-default btn-block", style: "margin-right: 20px;"
+          =fa_icon "undo", style:"margin-right:8px"
+          | 返回赛事主页面
+
+javascript:
+  $('#form_plus_report').click(function() {
+    $('#form_report').modal('show');
+  });
+  $('.form_edit_report_btn').click(function() {
+    $("#" + $(this).data('target')).modal('show');
+  });
+  $('#form_plus_forecast').click(function() {
+    $('#form_forecast').modal('show');
+  });
+  $('.form_edit_forecast_btn').click(function() {
+    $("#" + $(this).data('target')).modal('show');
+  });
+  $('.close').click(function(){
+    $(this).parent().parent().parent().parent().modal('hide');
+  });

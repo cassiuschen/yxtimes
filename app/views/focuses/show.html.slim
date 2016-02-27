@@ -1,0 +1,7 @@
+#article-detail
+  header style="background-image: url(#{asset_path 'header.png'})"
+    h2 
+      = @focuse.title 
+  article
+    section
+      == @focuse.content

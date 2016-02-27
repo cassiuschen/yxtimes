@@ -25,7 +25,8 @@ html
                 a.dropdown-toggle href="#" data-toogle="dropdown"
                   = fa_icon "user"
                   span style="padding: 0 5px;"
-                    | 瑄瑄
+                    - if current_user
+                      = current_user.name
                   = fa_icon "sort-down"
                 ul.dropdown-menu.dropdown-custom.dropdown-menu-right
                   li.dropdown-header.text-center
@@ -38,13 +39,35 @@ html
         section.sidebar
           .user-panel
             .info
-              p
-                | 欢迎，瑄瑄
+              - if current_user
+                p
+                  | 欢迎，
+                  = current_user.name
           ul.sidebar-menu
-            li class= '#{controller == "users" ? "active" : ""}'
+            li class= '#{controller == "home" ? "active" : ""}'
+              = link_to admin_path
+                = fa_icon "home"
+                |  首页
+            li class= '#{controller == "articles" ? "active" : ""}'
               = link_to admin_articles_path
                 = fa_icon "book"
                 |  文章
+            li class= '#{controller == "focuses" ? "active" : ""}'
+              = link_to admin_focuses_path
+                = fa_icon "bullseye"
+                |  聚焦
+            li class= '#{controller == "matches" ? "active" : ""}'
+              = link_to admin_matches_path
+                = fa_icon "futbol-o"
+                |  赛事
+            li class= '#{controller == "votes" ? "active" : ""}'
+              = link_to admin_votes_path
+                = fa_icon "plus"
+                |  投票
+            li class= '#{controller == "users" ? "active" : ""}'
+              = link_to admin_users_path
+                = fa_icon "users"
+                |  用户管理
       aside.right-side
         section.content
           = yield
@@ -54,8 +77,6 @@ html
       $(document).ready ->
         $('.dropdown').on 'click', ->
           $(this).toggleClass 'open'
-        
-        console.log 'run here'
 
     javascript:
       $('input').on('ifChecked', function(event) {

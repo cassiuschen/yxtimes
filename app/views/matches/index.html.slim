@@ -1,72 +1,93 @@
-.wrapper.match-page
-    nav
-        ul
-            li.active
-                a href="#" 篮球
-            li
-                a href="#" 足球
-            li
-                a href="#" 戏曲节
-            li
-                a href="#" 舞蹈节
-    .container
-        .title
-            h3 篮球杯
-        .content-box
-            .left-content.content-item
-                h4.title 男篮
-                ul.card-box
-                    - [1,2,3,4].each
-                        li
-                            span.time 11月6日
-                            span.team 格物VS新民
-                            span.score 11:10
-                            a.link href="#" 格物险胜捧得季军，新民无憾来年再战
-                    a.more-link href="#" 更多
-                ul.card-box
-                    h5 预告
-                    - [1,2].each
-                        li
-                            span.time 11月6日
-                            span.team 格物VS新民
-                            span.area 篮球一号场地
-                            span.turns 总决赛第一场
-                ul.card-box
-                    h5 赛程
-                    - [1,2,3].each
-                        li
-                            span.time 11月6日
-                            span.team 格物VS新民
-                            span.area 篮球一号场地
-                            span.turns 总决赛第一场
-                    a.more-link href="#" 更多
-            .right-content.content-item
-                h4.title 女篮
-                ul.card-box
-                    - [1,2,3,4].each
-                        li
-                            span.time 11月6日
-                            span.team 格物VS新民
-                            span.score 11:10
-                            a.link href="#" 格物险胜捧得季军，新民无憾来年再战
-                    a.more-link href="#" 更多
-                ul.card-box
-                    h5 预告
-                    - [1,2].each
-                        li
-                            span.time 11月6日
-                            span.team 格物VS新民
-                            span.area 篮球一号场地
-                            span.turns 总决赛第一场
-                ul.card-box
-                    h5 赛程
-                    - [1,2,3].each
-                        li
-                            span.time 11月6日
-                            span.team 格物VS新民
-                            span.area 篮球一号场地
-                            span.turns 总决赛第一场
-                    a.more-link href="#" 更多
-                    
-    .articles-box
-        
+.match-page
+    - if Match.where(state: 'on').last.kind
+        nav
+            ul.tags#tabs role="tablist" 
+                li.tag role="presentation" class= "#{Match.where(state: 'on').last.kind == 'basketball' ? 'active' : ''}"
+                    a href="#basketball" aria-controls="basketball" role="tab" data-toggle="tab"
+                        | 篮球
+                li.tag role="presentation" class= "#{Match.where(state: 'on').last.kind == 'football' ? 'active' : ''}"
+                    a href="#football" aria-controls="football" role="tab" data-toggle="tab"
+                        | 足球
+                li.tag role="presentation" class= "#{Match.where(state: 'on').last.kind == 'drama' ? 'active' : ''}"
+                    a href="#drama" aria-controls="drama" role="tab" data-toggle="tab"
+                        | 戏剧节
+                li.tag role="presentation" class= "#{Match.where(state: 'on').last.kind == 'dance' ? 'active' : ''}"
+                    a href="#dance" aria-controls="dance" role="tab" data-toggle="tab"
+                        | 舞蹈节
+
+    .tab-content
+        //篮球赛
+        - if Match.where(kind: 'basketball').last
+            .tab-pane.fade#basketball role="tabpanel" class= "#{Match.where(state: 'on').last.kind == 'basketball' ? 'active in' : ''}"
+                .container
+                    .title
+                        h3 = @basketballs.last.name
+                    .content-box
+                        .left-content.content-item
+                            h4.title 男篮
+                            ul.card-box
+                                - [1,2,3,4].each
+                                    li
+                                        span.time 11月6日
+                                        span.team 格物VS新民
+                                        span.score 11:10
+                                        a.link href="#" 格物险胜捧得季军，新民无憾来年再战
+                                a.more-link href="#" 更多
+                            ul.card-box
+                                h5 预告
+                                - [1,2].each
+                                    li
+                                        span.time 11月6日
+                                        span.team 格物VS新民
+                                        span.area 篮球一号场地
+                                        span.turns 总决赛第一场
+                        .right-content.content-item
+                            h4.title 女篮
+                            ul.card-box
+                                - [1,2,3,4].each
+                                    li
+                                        span.time 11月6日
+                                        span.team 格物VS新民
+                                        span.score 11:10
+                                        a.link href="#" 格物险胜捧得季军，新民无憾来年再战
+                                a.more-link href="#" 更多
+                            ul.card-box
+                                h5 预告
+                                - [1,2].each
+                                    li
+                                        span.time 11月6日
+                                        span.team 格物VS新民
+                                        span.area 篮球一号场地
+                                        span.turns 总决赛第一场
+                                
+                .articles-box
+                    - @basketballs.last.articles.each do |article|
+                            = render "shared/card_small", article: article 
+        //戏剧节
+        - if Match.where(kind: 'drama').last
+            .tab-pane.fade#drama role="tabpanel" class= "#{Match.where(state: 'on').last.kind == 'drama' ? 'active in' : ''}"
+                .container
+                    .title
+                        h3 = @dramas.last.name
+                .articles-box
+                    - @dramas.last.articles.each do |article|
+                            = render "shared/card_small", article: article 
+        //舞蹈节
+        - if Match.where(kind: 'dance').last
+            .tab-pane.fade#dance role="tabpanel" class= "#{Match.where(state: 'on').last.kind == 'dance' ? 'active in' : ''}"
+                .container
+                    .title
+                        h3 = @dances.last.name
+                .articles-box
+                    - @dances.last.articles.each do |article|
+                            = render "shared/card_small", article: article 
+
+javascript:
+  var $grid = $(".tab-content .active").masonry({
+    itemSelector: '.tab-content'
+  });
+  $grid.imagesLoaded().progress(function(){
+    $grid.masonry('layout');
+  });
+
+            

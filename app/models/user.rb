@@ -3,11 +3,12 @@ class User
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, password_length: 6..72
 
   ## Database authenticatable
   field :email,              type: String, default: ""
   field :encrypted_password, type: String, default: ""
+  field :name,               type: String, default: ""
 
   ## Recoverable
   field :reset_password_token,   type: String
@@ -22,6 +23,7 @@ class User
   field :last_sign_in_at,    type: Time
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip,    type: String
+  has_one :profile
 
   ## Confirmable
   # field :confirmation_token,   type: String
@@ -33,4 +35,14 @@ class User
   # field :failed_attempts, type: Integer, default: 0 # Only if lock strategy is :failed_attempts
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
+
+  after_create do
+    self.profile = Profile.create(nickname: self.name)
+  end
+
+  def avatar
+    self.profile.avatar.present? ? self.profile.avatar : "default-avatar.png"
+  end
+  
+
 end

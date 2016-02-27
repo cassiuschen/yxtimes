@@ -175,19 +175,13 @@ header .container {
 
 @media (max-width: 1160px) {
 	header {
-		.right {
-			.sign_up {
-				display: none;
-			}
-		}
-
 		.container {
 			width: 100%;
 		}
 	}
 }
 
-@media (max-width: 930px) {
+@media (max-width: 920px) {
 	header {
 		.logo {
 			margin-left: 40px;
@@ -196,7 +190,7 @@ header .container {
 			display: none;
 		}
 		.right {
-			.log_in {
+			.log_in, .sign_up {
 				display: none;
 			}
 			.search {

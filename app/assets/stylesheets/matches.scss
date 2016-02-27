@@ -28,6 +28,10 @@ body.matches {
                     opacity: 0.5;
                     a{
                         color: $white;
+                        text-decoration: none;
+                        &.active {
+                            text-decoration: none;
+                        }
                     }
 
                     &:hover{
@@ -36,6 +40,7 @@ body.matches {
 
                     &.active{
                         opacity: 1;
+                        text-decoration: none;
                     }
                 }
             }
@@ -142,7 +147,7 @@ body.matches {
 
         .articles-box{
             margin: 10px auto;
-            max-width: $max_width;
+            max-width: 945px;
         }
     }
 }

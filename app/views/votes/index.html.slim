@@ -1,14 +1,33 @@
 = render "shared/slider"
 
 .wrapper
-    - [1,2,3,4].each
-        .card_vote
-            .image_box
-                = image_tag "picture.jpg", class: :picture
-            .vote_content
-                h4 常规赛赛季总MVP投票 谁是你心中的英雄
-                p MVP即“最有价值的球员”，评价标准：1、率领球队取得好成绩；2、身为球队核心作用要立竿见影；3、能够使队友变得更好。提名标准非常复杂，时报和篮球杯负责人综合考虑每一个球员的各类数据，在确保每个书院有2个提名的基础上选取综合系数较高的队员进入提名名单。
-                span 发起中
+  - @votes.each do |vote|
+    - if vote.kind == 'on'
+      .card_vote
+        .image_box
+          = link_to "http://#{vote.route}"
+            = image_tag "#{vote.banner}", class: :picture
+        .vote_content
+          h4 
+            = link_to "http://#{vote.route}"
+              = vote.title
+          p 
+            = vote.subscript
+          span
+            = Vote::TYPES[vote.kind]
+    - else
+      .card_vote.off
+        .image_box
+          = link_to "http://#{vote.route}"
+            = image_tag "#{vote.banner}", class: :picture
+        .vote_content
+          h4 
+            = link_to "http://#{vote.route}"
+              = vote.title
+          p 
+            = vote.subscript
+          span style="color:#B73030"
+            = Vote::TYPES[vote.kind]
 //
   table
     thead

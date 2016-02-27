@@ -1,0 +1,45 @@
+.col-md-8
+  .panel
+    header.panel-heading
+      = fa_icon "book", style: "margin-right: 10px"
+      span
+        = Vote::TYPES[@vote.kind]
+    .panel-body.table-responsive
+      .row
+        .col-sm-12 style="margin-bottom:30px;"
+          = image_tag "#{@vote.banner}"
+        .col-sm-12 
+          span 标题:  
+          span style="font-size:16px; font-weight:900; margin-left:10px; margin-top:30px;"
+            = @vote.title
+        .col-sm-12
+          span 描述:  
+          span style="font-size:16px; font-weight:900; margin-left:10px; margin-top:20px;display:inline-block" 
+            = @vote.subscript
+        .col-sm-12
+          span 链接:  
+          span style="font-size:16px; font-weight:900; margin-left:10px; margin-top:20px;display:inline-block" 
+            = @vote.route
+    
+
+
+
+.col-md-4
+  .panel
+    header.panel-heading
+      = fa_icon "cog", style: "margin-right: 10px"
+      span
+        | 操作
+    .panel-body.table-responsive
+      .box-tools.m-b-15
+        = link_to edit_admin_vote_path(@vote), class: "btn btn-primary btn-block", style: "margin-right: 20px;"
+          =fa_icon "wrench", style:"margin-right:8px"
+          | 修改
+      .box-tools.m-b-15
+        = link_to admin_vote_path(@vote), method: :delete, class: "btn btn-danger btn-block", style: "margin-right: 20px;"
+          =fa_icon "trash", style:"margin-right:8px"
+          | 删除
+      .box-tools.m-b-15#form_plus_type
+        = link_to admin_votes_path(@vote), class: "btn btn-default btn-block", style: "margin-right: 20px;"
+          =fa_icon "undo", style:"margin-right:8px"
+          | 返回

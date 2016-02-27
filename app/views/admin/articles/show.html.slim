@@ -3,21 +3,25 @@
     header.panel-heading
       = fa_icon "book", style: "margin-right: 10px"
       span
-        | 文章
+        = Article::TYPES[@article.kind]
     .panel-body.table-responsive
-    	.row style="margin-bottom:30px;"
-    		.col-sm-12
-    			= image_tag "#{@article.banner}"
-    		.col-sm-12
-  				span 标题:	
-  				span style="font-size:16px; font-weight:900; margin-left:10px;"
-  					= @article.title
-    		.col-sm-12
-  				span 简介:	
-  				span style="font-size:16px; font-weight:900; margin-left:10px; margin-top:20px;display:inline-block" 
-  					= @article.des
-    	col-sm-12 
-    		= @article.content
+      .row 
+        .col-sm-12 style="margin-bottom:30px;"
+          = image_tag "#{@article.banner}"
+        .col-sm-12
+          span 标题:  
+          span style="font-size:16px; font-weight:900; margin-left:10px;"
+            = @article.title
+        .col-sm-12
+          span 简介:  
+          span style="font-size:16px; font-weight:900; margin-left:10px; margin-top:20px;display:inline-block" 
+            = @article.des
+        .col-sm-12
+          span 作者:  
+          span style="font-size:16px; font-weight:900; margin-left:10px; margin-top:20px;display:inline-block; margin-bottom:30px;" 
+            = @article.author
+      col-sm-12 
+        == @article.content
 
 
 

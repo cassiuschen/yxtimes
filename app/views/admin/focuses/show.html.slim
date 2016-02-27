@@ -1,0 +1,87 @@
+.col-md-8
+  .panel.general
+    header.panel-heading.tab-bg-dark-navy-blue
+      ul.nav.nav-tabs#tab
+        li.active
+          a data-toggle="tab" href="#item"
+            = fa_icon "book", style: "margin-right: 10px"
+            span
+              | 聚焦  
+        li
+          a data-toggle="tab" href="#articles"
+            = fa_icon "th-list", style: "margin-right: 10px"
+            span
+              | 文章
+    .panel-body
+      .tab-content
+        // 聚焦panel
+        #item.tab-pane.fade.in.active
+          table.table.table-hover style="width: 90%; margin: 20px auto;"
+            .row 
+              .col-sm-12 style="margin-bottom:30px;"
+                = image_tag "#{@focuse.banner}"
+              .col-sm-12
+                span 标题:  
+                span style="font-size:16px; font-weight:900; margin-left:10px;"
+                  = @focuse.title
+              .col-sm-12 style="margin-bottom:30px;"
+                span 简介:  
+                span style="font-size:16px; font-weight:900; margin-left:10px; margin-top:20px;display:inline-block" 
+                  = @focuse.des
+            col-sm-12 
+              == @focuse.content
+        // 文章panel
+        #articles.tab-pane.fade
+          - @focuse.articles.each do |article|
+            li.list-group-item
+              .rol-12-sm
+                span style="color:#4d4d4d; font-size: 14px;"
+                  | 标题：
+                span style="font-size:16px;font-weight:900;"
+                  = article.title
+                span = link_to '删除', admin_focuse_article_path(@focuse, article), method: :delete, class: "btn btn-danger btn-xs pull-right inline", style: "margin-right:20px;"
+                span = link_to edit_admin_focuse_article_path(@focuse, article), class: "btn btn-success btn-xs pull-right inline", style:"margin-right:20px;"
+                  | 编辑 
+                span = link_to admin_focuse_article_path(@focuse, article), class: "btn btn-info btn-xs pull-right inline", style:"margin-right:20px;"
+                  | 详情
+              .rol-12-sm style="margin-top:10px;"
+                span style="color:#4d4d4d; font-size: 14px;"
+                  | 简介：
+                span style="font-size:14px;"
+                  = article.des
+              .rol-12-sm style="margin-top:10px;"
+                span style="color:#4d4d4d; font-size: 14px;"
+                  | 作者：
+                span style="font-size:14px;"
+                  = article.author
+              .rol-12-sm style="margin-top:10px;"
+                span style="color:#4d4d4d; font-size: 14px;"
+                  | 标签：
+                span style="font-size:14px;"
+                  = Article::TAGES[article.tag]
+
+
+
+.col-md-4
+  .panel
+    header.panel-heading
+      = fa_icon "cog", style: "margin-right: 10px"
+      span
+        | 操作
+    .panel-body.table-responsive
+      .box-tools.m-b-15#form_plus_type
+        = link_to new_admin_focuse_article_path(@focuse), class: "btn btn-primary btn-block", style: "margin-right: 20px; background-color:#23B670;"
+          =fa_icon "plus", style:"margin-right:8px"
+          | 添加文章
+      .box-tools.m-b-15
+        = link_to edit_admin_focuse_path(@focuse), class: "btn btn-primary btn-block", style: "margin-right: 20px;"
+          =fa_icon "wrench", style:"margin-right:8px"
+          | 修改聚焦
+      .box-tools.m-b-15
+        = link_to admin_focuse_path(@focuse), method: :delete, class: "btn btn-danger btn-block", style: "margin-right: 20px;"
+          =fa_icon "trash", style:"margin-right:8px"
+          | 删除聚焦
+      .box-tools.m-b-15#form_plus_type
+        = link_to admin_focuses_path(@focuse), class: "btn btn-default btn-block", style: "margin-right: 20px;"
+          =fa_icon "undo", style:"margin-right:8px"
+          | 返回聚焦主页面

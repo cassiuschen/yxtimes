@@ -1,8 +1,15 @@
 .row
   .col-md-4
     .sm-st.clearfix
-      span.sm-st-icon.st-violet
+      span.sm-st-icon.st-green
         = fa_icon "users"
       .sm-st-info
         span 
         | 用户总数
+  .col-md-4
+    .sm-st.clearfix
+      span.sm-st-icon.st-violet
+        = fa_icon "book"
+      .sm-st-info
+        span = Article.all.size
+        | 文章总数

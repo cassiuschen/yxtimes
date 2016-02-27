@@ -1,48 +1,52 @@
-.tags {
-	text-align: center;
-	position: relative;
-	max-width: 910px;
-	margin: 0 auto;
-	height: 30px;
-	border-bottom: 2px solid $white;
-	text-align: center;
-	margin-bottom: 41px;
-	font-size: 0;
-	
-	.tag {
-		display: inline-block;
-		width: 66px;
-		font-size: 14px;
-		color: $light_gray;
+body.welcome, body.articles {
+	.tags {
 		text-align: center;
-
-		a {
+		position: relative;
+		max-width: 910px;
+		margin: 0 auto;
+		height: 30px;
+		border-bottom: 2px solid $white;
+		text-align: center;
+		margin-bottom: 41px;
+		font-size: 0;
+		
+		.tag {
+			display: inline-block;
+			width: 66px;
+			font-size: 14px;
 			color: $light_gray;
-			line-height: 28px;
-		}
+			text-align: center;
 
-		&:hover a{
-			color: $heavy_gray;
-		}
-		&:hover {
-			border-bottom: 2px solid $light_green;
-		}
+			a {
+				color: $light_gray;
+				line-height: 28px;
+			}
 
-		&.active {
-			border-bottom: 2px solid $green;
-		}
-		&.active a {
-			color: #414141;
-			text-decoration: none;
+			&:hover a{
+				color: $heavy_gray;
+			}
+			&:hover {
+				border-bottom: 2px solid $light_green;
+			}
+
+			&.active {
+				border-bottom: 2px solid $green;
+			}
+			&.active a {
+				color: #414141;
+				text-decoration: none;
+			}
 		}
 	}
 }
 
 @media (max-width: 320px) {
-	.tags .tag {
-		width: 50px;
-		a {
-			font-size: 12px;
+	body.welcome, body.articles {
+		.tags .tag {
+			width: 50px;
+			a {
+				font-size: 12px;
+			}
 		}
 	}
 }

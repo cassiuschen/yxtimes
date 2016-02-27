@@ -1,0 +1,57 @@
+body.about {
+	.section {
+		text-align: center;
+		padding-top: 77px;
+		padding-bottom: 77px;
+		position: relative;
+		top: 40px;
+		width: 100%;
+		&.section_1 {
+		}
+		&.section_2 {
+			background-color: #fff;
+		}
+
+		.title {
+			color: $green;
+			font-size: 18px;
+			margin-bottom: 30px;
+		}
+
+		.content {
+			max-width: 650px;
+			margin: 0 auto;
+			line-height: 24px;
+		}
+
+		.contact {
+			color: $green;
+			margin-top: 20px;
+		}
+
+		.way {
+			margin-top: 20px;
+
+			.name {
+				font-size: 16px;
+				font-weight: 200;
+				margin-bottom: 10px;
+			}
+
+			.picture {
+				width: 90px;
+				margin: 0 auto;
+				margin-bottom: 10px;
+				img {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+@media(max-width: 750px) {
+	body.about .section {
+		padding: 77px 50px;
+	}
+}

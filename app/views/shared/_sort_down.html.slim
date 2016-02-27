@@ -8,6 +8,9 @@
 				= link_to focuses_path
 					| 聚焦
 			li.col-xs-3
+				= link_to articles_path
+					| 文章
+			li.col-xs-3
 				= link_to matches_path
 					| 赛事
 			li.col-xs-3
@@ -22,13 +25,23 @@
 			li.col-xs-3
 				= link_to about_path
 					| 我们
-		.enter
-			.col-xs-12
-				.log_in.col-xs-3 data-toggle="modal" data-target="#modalLogin"
-					a
-						| 登录
-				.sign_up.col-xs-3 data-toggle="modal" data-target="#modalSignup"
-					a
-						| 注册
-	input.search
-	= fa_icon "search"
+		- if current_user
+			.enter
+				.col-xs-12
+					.log_in.col-xs-3
+						a
+							= current_user.name || current_user.email
+					.sign_up.col-xs-3 
+						= link_to destroy_user_session_path, method: :delete
+							| 退出
+		- else
+			.enter
+				.col-xs-12
+					.log_in.col-xs-3 data-toggle="modal" data-target="#modalLogin"
+						a
+							| 登录
+					.sign_up.col-xs-3 data-toggle="modal" data-target="#modalSignup"
+						a
+							| 注册
+	/input.search
+	/= fa_icon "search"

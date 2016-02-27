@@ -1,0 +1,13 @@
+.card_small.card
+  .title
+    = image_tag article.picture, class: :picture
+    = link_to article_path(article)
+      = article.title
+  .content
+    .subtitle
+      = article.des
+    .time
+      = timeago_script_tag
+      = timeago_tag article.updated_at, :nojs => true, :limit => 10.days.ago
+    .author
+      = article.author

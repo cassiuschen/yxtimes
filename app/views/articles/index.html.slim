@@ -7,6 +7,30 @@
     .tab-pane.fade.active.in#all role="tabpanel"
       - @articles.each do |article|
         = render "shared/card_small", article: article 
+    .tab-pane.fade#people role="tabpanel"
+      - @people = Article.where(tag: 'people', kind: 'essay').sort_by {|d| Time.now - d.updated_at}
+      - @people.each do |article|
+        = render partial: "shared/card_small", locals: {article: article}
+    .tab-pane.fade#events role="tabpanel"
+      - @events = Article.where(tag: 'event', kind: 'essay').sort_by {|d| Time.now - d.updated_at}
+      - @events.each do |article|
+        = render partial: "shared/card_small", locals: {article: article}
+    .tab-pane.fade#surveys role="tabpanel"
+      - @surveys = Article.where(tag: 'survey', kind: 'essay').sort_by {|d| Time.now - d.updated_at}
+      - @surveys.each do |article|
+        = render partial: "shared/card_small", locals: {article: article}
+    .tab-pane.fade#views role="tabpanel"
+      - @views = Article.where(tag: 'view', kind: 'essay').sort_by {|d| Time.now - d.updated_at}
+      - @views.each do |article|
+        = render partial: "shared/card_small", locals: {article: article}
+
+javascript:
+  var $grid = $(".cards .active").masonry({
+    itemSelector: '.card'
+  });
+  $grid.imagesLoaded().progress(function(){
+    $grid.masonry('layout');
+  });
 
 
 

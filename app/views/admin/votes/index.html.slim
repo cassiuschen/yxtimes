@@ -1,0 +1,48 @@
+.row
+  .col-md-4
+    .sm-st.clearfix
+      span.sm-st-icon.st-violet
+        = fa_icon "plus"
+      .sm-st-info
+        span = @votes.size
+        | 投票总数
+  .box-tools.m-b-15
+    = link_to new_admin_vote_path, class: "btn btn-success pull-right", style: "margin-top: 30px; margin-right: 30px; margin-bottom:30px;"
+      =fa_icon "plus", style:"margin-right:4px"
+      | 添加投票
+
+- @votes.each do |vote|
+  .row
+    .col-xs-12
+      .panel
+        header.panel-heading 
+          span = vote.id
+          = link_to "删除", admin_vote_path(vote), method: :delete, class: "btn btn-danger btn-sm pull-right", style: "margin-right: 20px;position:relative; bottom:4px;"
+          = link_to "编辑", edit_admin_vote_path(vote), class: "btn btn-success btn-sm pull-right", style: "margin-right: 20px; position:relative; bottom:4px;"
+          a href="http://#{vote.route}" class= "btn btn-info btn-sm pull-right" style= "margin-right: 20px; position:relative; bottom:4px;"
+            | 问卷详情 
+        .panel-body.table-responsive 
+          .col-sm-3 
+            = image_tag vote.banner
+          .col-sm-8
+            .row style="font-size:16px;"
+              span style="font-size:14px; color:#4d4d4d"
+                | 状态：
+              - if Vote::TYPES[vote.kind] == "发起中"
+                span style="color:#80b730"
+                  = Vote::TYPES[vote.kind]
+              - if Vote::TYPES[vote.kind] == "已结束"
+                span style="color:#B73030"
+                  = Vote::TYPES[vote.kind]
+            .row style="font-size:16px;margin-top:10px;"
+              span style="font-size:14px; color:#4d4d4d; "
+                | 标题：
+              = vote.title
+            .row style="margin-top:10px;"
+              span style="font-size:14px; color:#4d4d4d"
+                | 描述：
+              = vote.subscript
+            .row style="margin-top:10px;"
+              span style="font-size:14px; color:#4d4d4d"
+                | 链接：
+              = vote.route

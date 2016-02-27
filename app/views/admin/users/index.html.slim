@@ -4,14 +4,14 @@
       span.sm-st-icon.st-violet
         = fa_icon "users"
       .sm-st-info
-        span 
+        span = @users.size
         | 用户总数
   .col-md-6
     .sm-st.clearfix
       span.sm-st-icon.st-green
         = fa_icon "user-plus"
       .sm-st-info
-        span = 
+        span = User.where(created_at: (Time.now.midnight - 1.day)..Time.now.midnight).size
         | 新增用户数
 .row
   .col-sm-12
@@ -21,3 +21,30 @@
           = link_to new_admin_user_path, class: "btn btn-default pull-right", style: "margin-right: 20px;"
             =fa_icon "plus", style:"margin-right:4px"
             | 添加用户
+
+.row
+  .col-xs-12
+    .panel
+      header.panel-heading
+        | 用户数据
+      .panel-body.table-responsive
+          
+        table.table.table-hover
+          thead
+            tr
+              th ID
+              th 姓名
+              th 电子邮箱地址
+              th
+              th
+          tbody
+            - for user in @users
+              tr
+                th = user.id
+                th 
+                  = user.name
+                th = user.email
+                th style="height:100%;"
+                  = link_to "详情", admin_user_path(user), class: "btn btn-success btn-sm"
+                th style="height:100%;"
+                  = link_to "删除", admin_user_path(user), method: :delete, class: "btn btn-danger btn-sm"

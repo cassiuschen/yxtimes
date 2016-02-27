@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body.welcome, body.focuses, body.articles {
+body.welcome, body.focuses, body.articles, body.works, body.matches {
 	background-color: $background_color;
 	.wrapper {
 		position: relative;
@@ -25,12 +25,17 @@ body.welcome, body.focuses, body.articles {
 		.wrapper .cards {
 			max-width: 630px;
 		}
+		body.matches .tab-content{
+			max-width: 630px;
+		}
 	}
 
 	@media (max-width: 629px) {
 		.wrapper .cards {
 			max-width: 315px;
 		}
+		body.matches .tab-content {
+			max-width: 315px;
+		}
 	}
 }
-
