@@ -35,17 +35,18 @@ html
             = fa_icon "bars"
             /= fa_icon "search"
           /input.search
-          - if current_user
-            .log_in
-              = current_user.name || current_user.email
-            .sign_up   
-              = link_to destroy_user_session_path, method: :delete
-                | 退出
-          - else
-            .log_in data-toggle="modal" data-target="#modalLogin"
-              | 登陆
-            .sign_up data-toggle="modal" data-target="#modalSignup"
-              | 注册  
+          //
+            - if current_user
+              .log_in
+                = current_user.name || current_user.email
+              .sign_up   
+                = link_to destroy_user_session_path, method: :delete
+                  | 退出
+            - else
+              .log_in data-toggle="modal" data-target="#modalLogin"
+                | 登陆
+              .sign_up data-toggle="modal" data-target="#modalSignup"
+                | 注册  
     = render "shared/sort_down"
     = render "shared/login"
     = render "shared/signup"

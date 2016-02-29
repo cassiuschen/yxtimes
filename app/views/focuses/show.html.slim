@@ -5,3 +5,9 @@
   article
     section
       == @focuse.content
+
+.wrapper
+    .cards
+        - @focuse.articles.each do |article|
+            = render partial: "shared/card_small", locals: {article: article}
+

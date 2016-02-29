@@ -25,17 +25,38 @@ body.welcome, body.focuses, body.articles, body.works, body.matches {
 		.wrapper .cards {
 			max-width: 630px;
 		}
-		body.matches .tab-content{
-			max-width: 630px;
-		}
 	}
 
 	@media (max-width: 629px) {
 		.wrapper .cards {
 			max-width: 315px;
 		}
-		body.matches .tab-content {
-			max-width: 315px;
-		}
+	}
+}
+body.matches .wrapper {
+	top: 0;
+	.cards {
+		max-width: 1262px;
+	}
+}
+
+@media (max-width: 1279px) {
+	.wrapper .cards {
+		max-width: 946px;
+	}
+}
+
+@media (max-width: 945px) {
+	body.matches .wrapper {
+		top: 0;
+	}
+	body.matches .wrapper .cards{
+		max-width: 630px;
+	}
+}
+
+@media (max-width: 629px) {
+	body.matches .wrapper .cards {
+		max-width: 315px;
 	}
 }

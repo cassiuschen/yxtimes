@@ -7,11 +7,17 @@ html{
 }
 body.matches {
     height: auto;
+    width: 100%;
     min-height: 100%;
-    background-image: asset-url('bg.jpg');
-    background-size: auto 100%;
+    background-image: asset-url('match_bg.jpeg');
+    background-size: cover;
+    -moz-background-size:cover;
+    -ms-background-size:cover;
+    -webkit-background-size:cover;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=images/match_bg.jpeg,sizingMethod=scale);
     background-attachment: fixed;
     background-position: center;
+    background-repeat: no-repeat;
 
     .match-page{
         padding-top: 40px;

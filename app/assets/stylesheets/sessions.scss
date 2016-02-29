@@ -1,0 +1,29 @@
+body.sessions {
+	background-color: $background-color;
+	input {
+		border: none;
+	}
+	.content {
+		margin: 0 auto;
+		text-align: center;
+	}
+	header {
+		position: relative;
+	}
+	.logo {
+		height: 40px;
+		display: inline-block;
+		vertical-align: bottom;
+	}
+	.title {
+		display: inline-block;
+		font-weight: 500;
+		font-size: 22px;
+		line-height: 40px;
+		vertical-align: bottom;
+	}
+	.form-control {
+		width: 350px;
+		margin: 0 auto;
+	}
+}

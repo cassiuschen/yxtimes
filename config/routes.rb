@@ -40,6 +40,12 @@ Rails.application.routes.draw do
     resources :votes
   end
 
+  scope module: :api, path: '/api', defaults: { format: 'json' } do
+    namespace :v1 do
+      post 'thumb', controller: '/api/common/upload', action: 'create'
+    end
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

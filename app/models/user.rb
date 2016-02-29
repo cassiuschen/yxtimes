@@ -9,6 +9,7 @@ class User
   field :email,              type: String, default: ""
   field :encrypted_password, type: String, default: ""
   field :name,               type: String, default: ""
+  field :remember_me, type: Boolean
 
   ## Recoverable
   field :reset_password_token,   type: String
@@ -36,12 +37,13 @@ class User
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
 
-  after_create do
-    self.profile = Profile.create(nickname: self.name)
-  end
-
   def avatar
     self.profile.avatar.present? ? self.profile.avatar : "default-avatar.png"
+  end
+
+  ADMIN = %w(iloveivyxuan@gmail.com chzsh1995@gmail.com xindi@stu.pkuschool.edu.cn lixuan@stu.pkuschool.edu.cn lvxinyu@stu.pkuschool.edu.cn)
+  def admin?
+    ADMIN.include? email
   end
   
 

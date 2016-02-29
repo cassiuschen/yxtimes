@@ -5,6 +5,6 @@ class FocusesController < ApplicationController
 
 	def show
 		@focuse = Focuse.find(params[:id])
-	end
+	end	
 	
 end

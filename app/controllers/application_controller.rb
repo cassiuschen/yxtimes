@@ -33,10 +33,5 @@ class ApplicationController < ActionController::Base
     session[:previous_url] || root_path
   end
 
-  #适配设备们
-  before_filter :adjust_format_for_iphone
-  private
-  def adjust_format_for_iphone    
-    request.format = :ios if request.env["HTTP_USER_AGENT"] =~ %r{Mobile/.+Safari}
-  end
+  
 end
